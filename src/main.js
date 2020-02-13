@@ -5,6 +5,10 @@ import store from './store'
 
 Vue.config.productionTip = false
 
+const Default = () => import('./components/layouts/Default.vue')
+
+Vue.component('default-layout', Default)
+
 new Vue({
   router,
   store,

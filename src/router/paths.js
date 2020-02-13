@@ -1,7 +1,10 @@
-export const paths = [
+export default [
   {
     path: '/',
-    name: 'Home',
+    name: 'underConstruction',
+    meta: {
+      layout: 'default'
+    },
     component: () => import('@/views/Home')
   }
 ]

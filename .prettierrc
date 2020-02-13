@@ -2,4 +2,6 @@
   "semi": false,
   "arrowParens": "avoid",
   "singleQuote": true,
+  "bracketSpacing": true,
+  "trailingComma": "none"
 }
