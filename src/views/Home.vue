@@ -14,6 +14,7 @@
         ><br />Thank you for choosing CV Genius
       </p>
     </div>
+    <b-button  variant="secondary">Default Alert</b-button>
 
     <count-down />
   </div>
@@ -47,7 +48,7 @@ export default {
       font-size: 32px;
     }
 
-    p{
+    p {
       font-size: 20px;
     }
   }
