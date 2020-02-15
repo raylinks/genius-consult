@@ -14,12 +14,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.nav{
+.nav {
   position: absolute;
   top: 0;
-  padding: 0px 20px;
+  padding: 10px 30px !important;
 
-  p{
+  p {
     font-size: 20px;
     color: #464353;
     font-weight: 900;

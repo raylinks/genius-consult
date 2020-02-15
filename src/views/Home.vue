@@ -45,6 +45,7 @@ export default {
   .texts {
     h1 {
       font-size: 32px;
+      margin-top: 20px;
     }
 
     p {
