@@ -14,7 +14,6 @@
         ><br />Thank you for choosing CV Genius
       </p>
     </div>
-    <b-button  variant="secondary">Default Alert</b-button>
 
     <count-down />
   </div>
