@@ -13,7 +13,8 @@
     <b-form-group id="input-group-2">
       <b-form-input
         id="input-2"
-        v-model="form.name"
+        v-model="form.password"
+        type="password"
         required
         placeholder="Password"
       ></b-form-input>
@@ -29,18 +30,21 @@
       </b-form-checkbox-group>
     </b-form-group> -->
 
-    <b-button pill variant="primary" class="btn-genius-lg"> Register</b-button>
+    <b-button pill variant="primary" type="submit" class="btn-genius-lg">
+      {{ type }}</b-button
+    >
   </b-form>
 </template>
 
 <script>
 /* eslint-disable space-before-function-paren */
 export default {
+  props: ['type'],
   data() {
     return {
       form: {
         email: '',
-        name: ''
+        password: ''
       }
     }
   },

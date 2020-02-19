@@ -1,8 +1,8 @@
 <template>
   <div class="page-container">
-    <div class="nav">
+    <!-- <div class="nav">
       <p>Genius Consult</p>
-    </div>
+    </div> -->
     <slot />
   </div>
 </template>

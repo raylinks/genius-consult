@@ -77,11 +77,27 @@
                 </div>
               </template>
               <template v-else>
-                <RegisterForm />
+                <RegisterForm type="Register" />
               </template>
             </div>
           </b-col>
         </b-row>
+        <div class="d-flex justify-content-between mt-1 bottom-text">
+          <div>
+            <p
+              v-if="continueWithMail"
+              @click="continueWithMail = false"
+              class="back"
+            >
+              Back
+            </p>
+          </div>
+
+          <p class="hasAccount">
+            Already have an account?
+            <router-link to="/login" class="login">Login</router-link>
+          </p>
+        </div>
       </div>
     </b-container>
   </div>
@@ -124,7 +140,7 @@ export default {
 
     .top {
       background: #262626 linear-gradient(135deg, #262626 0%, #4b4b4b 100%);
-      border-radius: 7px 7px 0 0;
+
       h3 {
         color: white;
         margin: 0px !important;
@@ -151,7 +167,7 @@ export default {
   .right {
     height: 100%;
     background: white;
-    border-bottom-right-radius: 10px;
+
     padding-top: 40px;
 
     .right-inner {
@@ -181,8 +197,63 @@ export default {
     }
   }
 }
+@media screen and (min-width: 600px) {
+  .right {
+    border-bottom-right-radius: 10px;
+  }
 
+  .top {
+    border-radius: 7px 7px 0 0;
+  }
+}
 .row {
   margin: 0 !important;
+}
+
+@media screen and (max-width: 1024px) {
+  .panel-inner {
+    width: 100% !important;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .left {
+    display: none !important;
+  }
+
+  .right {
+    min-width: 100% !important;
+  }
+
+  .register .panel {
+    max-width: 100% !important;
+    height: 100% !important;
+    padding: 0 !important;
+    overflow: none;
+  }
+
+  .bottom-text {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    padding: 0px 10px;
+  }
+}
+
+.back {
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}
+
+.hasAccount {
+  letter-spacing: 0.04em;
+  font-weight: 300;
+
+  .login {
+    color: black;
+    font-weight: 500;
+  }
 }
 </style>
