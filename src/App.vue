@@ -8,9 +8,6 @@
 
 <script>
 export default {
-  mounted () {
-    console.log(this.$route)
-  },
   computed: {
     layout () {
       return (this.$route.meta.layout || 'default') + '-layout'
@@ -20,6 +17,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import './assets/style/css/global.css';
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

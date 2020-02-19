@@ -49,5 +49,24 @@ $theme-colors: map-merge(
   $theme-colors
 );
 
+.btn-genius {
+  font-size: 14px !important;
+  // padding: 6px 40px!important;
+  width: 250px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.btn-genius-lg {
+  font-size: 16px !important;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+
+
 @import 'node_modules/bootstrap/scss/bootstrap';
 @import 'node_modules/bootstrap-vue/src/index.scss';

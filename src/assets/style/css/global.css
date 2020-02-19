@@ -5,3 +5,11 @@ body {
   padding: 0;
   font-family: 'Open Sans', sans-serif;
 }
+
+ul {
+  list-style: none;
+}
+
+li {
+  padding: 0px !important;
+}
