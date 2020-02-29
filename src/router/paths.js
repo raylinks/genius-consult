@@ -31,5 +31,13 @@ export default [
       layout: 'default'
     },
     component: () => import('@/views/Dashboard')
+  },
+  {
+    path: '/',
+    name: 'Landing Page',
+    meta: {
+      layout: 'landing'
+    },
+    component: () => import('@/views/Landing/Home')
   }
 ]

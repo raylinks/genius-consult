@@ -16,8 +16,10 @@ Vue.use(IconsPlugin)
 Vue.config.productionTip = false
 
 const Default = () => import('./components/layouts/Default.vue')
+const Landing = () => import('./components/layouts/Landing.vue')
 
 Vue.component('default-layout', Default)
+Vue.component('landing-layout', Landing)
 
 new Vue({
   router,
