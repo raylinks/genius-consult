@@ -23,5 +23,13 @@ export default [
       layout: 'default'
     },
     component: () => import('@/views/Auth/Login')
+  },
+  {
+    path: '/dashboard',
+    name: 'Dashboard',
+    meta: {
+      layout: 'default'
+    },
+    component: () => import('@/views/Dashboard')
   }
 ]
