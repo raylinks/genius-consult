@@ -1,5 +1,5 @@
 <template>
-  <b-form @submit="onSubmit" @reset="onReset">
+  <b-form @submit.prevent="onSubmit" @reset="onReset">
     <b-form-group id="input-group-1">
       <b-form-input
         id="input-1"
@@ -49,7 +49,9 @@ export default {
     }
   },
   methods: {
-    onSubmit() {},
+    onSubmit() {
+      this.$router.push('/dashboard')
+    },
     onReset() {}
   }
 }

@@ -17,9 +17,14 @@ Vue.config.productionTip = false
 
 const Default = () => import('./components/layouts/Default.vue')
 const Landing = () => import('./components/layouts/Landing.vue')
+const Authenticated = () => import('./components/layouts/Authenticated.vue')
+const AuthenticatedWithSideBar = () =>
+  import('./components/layouts/AuthenticatedWithSideBar.vue')
 
 Vue.component('default-layout', Default)
 Vue.component('landing-layout', Landing)
+Vue.component('authenticated-layout', Authenticated)
+Vue.component('authenticatedWithSideBar-layout', AuthenticatedWithSideBar)
 
 new Vue({
   router,

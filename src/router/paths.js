@@ -28,9 +28,16 @@ export default [
     path: '/dashboard',
     name: 'Dashboard',
     meta: {
-      layout: 'default'
+      layout: 'authenticated'
     },
     component: () => import('@/views/Dashboard')
+  },
+  {
+    path: '/resume/create',
+    name: 'Resume',
+    meta: {
+    },
+    component: () => import('@/views/Resumes')
   },
   {
     path: '/',

@@ -23,7 +23,7 @@
               <a href="/login">Login</a>
             </li>
             <li class="nav_item">
-              <button class="btn_genius">Register</button>
+              <a href="/register" class="btn_genius">Register</a>
             </li>
           </ul>
         </div>
@@ -72,7 +72,7 @@ export default {
 
         .btn_genius {
           background: transparent !important;
-          color: $primary;
+          color: $primary !important;
           border: 1px solid $primary;
           border-radius: 45px;
           padding: 9px 25px;
@@ -81,7 +81,8 @@ export default {
 
           &:hover {
             background: $primary !important;
-            color: white!important;
+            color: white !important;
+            text-decoration: none;
           }
         }
         .icon-down-arrow {
