@@ -28,9 +28,9 @@
     <div class="d-flex">
       <div class="sideBar">
         <ul class="list-group">
-          <li class="list-item active"><a href="">Select a template</a></li>
-          <li class="list-item"><a href="">Fill in your CV</a></li>
-          <li class="list-item"><a href="">Preview &amp; customize</a></li>
+          <li class="list-item active"><router-link to="/resume/create/1">Select a template</router-link></li>
+          <li class="list-item"><router-link to="/resume/create/2">Fill in your CV</router-link></li>
+          <li class="list-item"><router-link to="/resume/create/3">Preview &amp; customize</router-link></li>
         </ul>
         <div class="btn-wrapper">
           <button class="btn-download">Download</button>
@@ -66,7 +66,7 @@ export default {
 
 .sideBar {
   background-color: #333;
-  height: 100vh;
+  min-height: 100vh;
   width: 300px;
   display: flex;
   flex-direction: column;

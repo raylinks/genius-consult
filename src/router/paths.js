@@ -33,7 +33,7 @@ export default [
     component: () => import('@/views/Dashboard')
   },
   {
-    path: '/resume/create',
+    path: '/resume/create/:step',
     name: 'Resume',
     meta: {
     },
