@@ -28,9 +28,17 @@
     <div class="d-flex">
       <div class="sideBar">
         <ul class="list-group">
-          <li class="list-item active"><router-link to="/resume/create/1">Select a template</router-link></li>
-          <li class="list-item"><router-link to="/resume/create/2">Fill in your CV</router-link></li>
-          <li class="list-item"><router-link to="/resume/create/3">Preview &amp; customize</router-link></li>
+          <li class="list-item active">
+            <router-link to="/resume/create/1">Select a template</router-link>
+          </li>
+          <li class="list-item">
+            <router-link to="/resume/create/2">Fill in your CV</router-link>
+          </li>
+          <li class="list-item">
+            <router-link to="/resume/create/3"
+              >Preview &amp; customize</router-link
+            >
+          </li>
         </ul>
         <div class="btn-wrapper">
           <button class="btn-download">Download</button>
@@ -62,6 +70,12 @@ export default {
 
 .navbar {
   background: linear-gradient(345deg, #262626 0%, #4b4b4b 100%) !important;
+}
+
+@media screen and (max-width: 768px) {
+  .sideBar {
+    display: none !important;
+  }
 }
 
 .sideBar {

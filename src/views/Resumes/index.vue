@@ -8,6 +8,8 @@
 <script>
 /* eslint-disable space-before-function-paren */
 import SelectTemplate from './SelectTemplate.vue'
+import FillResume from './FillResume.vue'
+
 export default {
   data() {
     return {}
@@ -22,7 +24,8 @@ export default {
     }
   },
   components: {
-    'select-template': SelectTemplate
+    'select-template': SelectTemplate,
+    'fill-resume': FillResume
   }
 }
 </script>
