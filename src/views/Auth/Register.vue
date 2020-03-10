@@ -77,7 +77,7 @@
                 </div>
               </template>
               <template v-else>
-                <RegisterForm type="Register" />
+                <RegisterForm type="Register" @Register="register" />
               </template>
             </div>
           </b-col>
@@ -105,6 +105,7 @@
 
 <script>
 /* eslint-disable space-before-function-paren */
+import { registerUser } from '@/api/auth'
 const RegisterForm = () => import('@/components/RegisterForm')
 export default {
   components: {
@@ -113,6 +114,21 @@ export default {
   data() {
     return {
       continueWithMail: false
+    }
+  },
+  methods: {
+    register(form) {
+      registerUser(form)
+        .then(data => {
+          console.log(data)
+        })
+        .catch(e => {
+          console.dir(e)
+        })
+
+      // fetch(process.env.VUE_APP_API_URL + '/api/register/user', {
+
+      // })
     }
   }
 }

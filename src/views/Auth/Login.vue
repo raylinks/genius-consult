@@ -25,12 +25,11 @@
             </div>
           </b-col>
           <b-col cols="6" class="right d-flex align-items-center">
-              <RegisterForm type="Login"/>
+            <RegisterForm type="Login" @Login="login" />
           </b-col>
         </b-row>
         <div class="d-flex justify-content-between mt-1 bottom-text">
-          <div>
-          </div>
+          <div></div>
 
           <p class="hasAccount">
             Don't have an account?
@@ -44,6 +43,7 @@
 
 <script>
 /* eslint-disable space-before-function-paren */
+import { getAccess } from '@/api/auth'
 const RegisterForm = () => import('@/components/RegisterForm')
 export default {
   components: {
@@ -52,6 +52,17 @@ export default {
   data() {
     return {
       continueWithMail: false
+    }
+  },
+  methods: {
+    login(form) {
+      getAccess(form)
+        .then(data => {
+          console.log(data)
+        })
+        .catch(e => {
+          console.dir(e)
+        })
     }
   }
 }

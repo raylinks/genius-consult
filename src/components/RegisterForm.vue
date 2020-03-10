@@ -50,7 +50,7 @@ export default {
   },
   methods: {
     onSubmit() {
-      this.$router.push('/dashboard')
+      this.$emit(`${this.type}`, this.form)
     },
     onReset() {}
   }
