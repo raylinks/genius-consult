@@ -24,6 +24,16 @@ export default [
     },
     component: () => import('@/views/Auth/Login')
   },
+
+  {
+    path: '/forgotpassword',
+    name: 'Forgot Password',
+    meta: {
+      layout: 'default'
+    },
+    component: () => import('@/views/Auth/ForgotPassword')
+  },
+
   {
     path: '/dashboard',
     name: 'Dashboard',

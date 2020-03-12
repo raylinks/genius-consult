@@ -1,4 +1,4 @@
-import { getAccess } from '@/api/auth'
+import { getAccess, forgotPassword } from '@/api/auth'
 
 const actions = {
   AUTHENTICATE_USER: ({ commit }, payload) => {
@@ -15,6 +15,16 @@ const actions = {
       commit('SET_TOKEN', responseData.token)
       localStorage.setItem('token', responseData.token)
       commit('SET_USER', responseData.data)
+    })
+  },
+
+  FORGOT_PASSWORD: ({ commit }, payload) => {
+    forgotPassword(payload).then(data => {
+      // this commit is to open a modal to notify user to check their email to reset their password
+      commit('SET_FORGOT_PASSWORD_STATUS', true)
+
+      // this commit is to update the message the user sees upon trying to reset their password
+      commit('SET_FORGOT_PASSWORD_MESSAGE', data.data.message)
     })
   }
 }

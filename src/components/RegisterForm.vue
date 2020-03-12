@@ -7,6 +7,7 @@
         type="email"
         required
         placeholder="Email"
+        class="mb-20"
       ></b-form-input>
     </b-form-group>
 
@@ -29,7 +30,13 @@
         <b-form-checkbox value="that">Check that out</b-form-checkbox>
       </b-form-checkbox-group>
     </b-form-group> -->
-
+    <template v-if="type == 'Login'">
+      <div class="mb-20 fp-wrapper">
+        <router-link to="forgotpassword" class="forgotpassword">
+          Forgot Password?
+        </router-link>
+      </div>
+    </template>
     <b-button pill variant="primary" type="submit" class="btn-genius-lg">
       {{ type }}</b-button
     >
@@ -52,7 +59,12 @@ export default {
     onSubmit() {
       this.$emit(`${this.type}`, this.form)
     },
-    onReset() {}
+    onReset() {},
+
+    forgotPassword() {
+      this.type = 'Reset Password'
+      this.$el.querySelector('#input-group-2').style.display = 'none'
+    }
   }
 }
 </script>
@@ -62,16 +74,40 @@ form {
   width: 70%;
   margin-top: 20px;
 }
-.form-control {
+.form-control:first-child {
   height: 40px;
   line-height: 38px;
   padding-left: 15px;
   padding-right: 15px;
-  margin-bottom: 10px;
+  // margin-bottom: 20px!important;
   background-color: #eeeeee;
   border: 1px solid #c2c2c2;
   border-radius: 10px;
   width: 100%;
+}
+
+.form-group {
+  margin-bottom: 0px !important;
+}
+.mb-20 {
+  margin-bottom: 20px !important;
+}
+
+.forgotpassword {
+  color: $primary !important;
+  font-size: 0.8rem;
+  text-align: right;
+  margin-left: auto;
+  width: 100%;
+  background: transparent;
+  border: 0px;
+}
+
+.fp-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 5px;
+  cursor: pointer;
 }
 
 .checkbox {

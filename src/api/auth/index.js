@@ -2,13 +2,18 @@
 import http from '@/utils/http'
 
 async function registerUser(userData) {
-  const user = await http.post('/api/register/user', userData)
+  const user = await http.post('/register/user', userData)
   return user
 }
 
 async function getAccess(userData) {
-  const user = await http.post('/api/login', userData)
+  const user = await http.post('/login', userData)
   return user
 }
 
-export { registerUser, getAccess }
+async function forgotPassword(email) {
+  const response = await http.post('forgotpassword', { email: email })
+  return response
+}
+
+export { registerUser, getAccess, forgotPassword }
