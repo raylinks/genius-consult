@@ -28,7 +28,8 @@ export default [
     path: '/dashboard',
     name: 'Dashboard',
     meta: {
-      layout: 'authenticated'
+      layout: 'authenticated',
+      requiresAuth: true
     },
     component: () => import('@/views/Dashboard')
   },
@@ -36,6 +37,7 @@ export default [
     path: '/resume/create/:step',
     name: 'Resume',
     meta: {
+      requiresAuth: true
     },
     component: () => import('@/views/Resumes')
   },

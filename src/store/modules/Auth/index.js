@@ -3,8 +3,8 @@ import getters from './getters'
 import mutations from './mutations'
 
 const initialState = {
-  token: [],
-  user: []
+  token: localStorage.getItem('token') || '',
+  user: {}
 }
 
 export default {

@@ -43,7 +43,7 @@
 
 <script>
 /* eslint-disable space-before-function-paren */
-import { getAccess } from '@/api/auth'
+import { mapActions } from 'vuex'
 const RegisterForm = () => import('@/components/RegisterForm')
 export default {
   components: {
@@ -55,15 +55,9 @@ export default {
     }
   },
   methods: {
-    login(form) {
-      getAccess(form)
-        .then(data => {
-          console.log(data)
-        })
-        .catch(e => {
-          console.dir(e)
-        })
-    }
+    ...mapActions('Auth', {
+      login: 'AUTHENTICATE_USER'
+    })
   }
 }
 </script>
