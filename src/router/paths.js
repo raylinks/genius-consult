@@ -35,6 +35,15 @@ export default [
   },
 
   {
+    path: '/resetpassword',
+    name: 'Reset Password',
+    meta: {
+      layout: 'default'
+    },
+    component: () => import('@/views/Auth/ResetPassword')
+  },
+
+  {
     path: '/dashboard',
     name: 'Dashboard',
     meta: {
