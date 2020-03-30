@@ -31,7 +31,7 @@
       </b-form-checkbox-group>
     </b-form-group> -->
     <template v-if="type == 'Login'">
-      <div class="mb-20 fp-wrapper">
+      <div class=" fp-wrapper">
         <router-link to="forgotpassword" class="forgotpassword">
           Forgot Password?
         </router-link>
@@ -133,5 +133,9 @@ form {
 .checkbox {
   text-align: left !important;
   font-size: 13px;
+}
+
+.btn-genius-lg {
+  margin-top: 20px;
 }
 </style>

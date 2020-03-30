@@ -37,6 +37,10 @@ const actions = {
       // this commit is to update the message the user sees upon trying to reset their password
       commit('SET_FORGOT_PASSWORD_MESSAGE', data.data.message)
     })
+  },
+
+  ADD_USER: ({ commit }, payload) => {
+    commit('SET_USER', payload)
   }
 }
 

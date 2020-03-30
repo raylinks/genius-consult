@@ -16,4 +16,9 @@ async function forgotPassword(email) {
   return response
 }
 
-export { registerUser, getAccess, forgotPassword }
+async function verifyUser(token) {
+  const response = await http.get('verify?token=' + token)
+  return response
+}
+
+export { registerUser, getAccess, forgotPassword, verifyUser }

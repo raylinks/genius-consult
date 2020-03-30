@@ -106,6 +106,7 @@
 <script>
 /* eslint-disable space-before-function-paren */
 import { registerUser } from '@/api/auth'
+import { mapActions } from 'vuex'
 const RegisterForm = () => import('@/components/RegisterForm')
 export default {
   components: {
@@ -118,19 +119,30 @@ export default {
   },
   methods: {
     register(form) {
+      this.addUserToState(form)
+      this.$store._mutations['Auth/SET_LOADING_STATUS'][0](true)
       registerUser(form)
         .then(data => {
-          console.log(data)
+          this.$store._mutations['Auth/SET_LOADING_STATUS'][0](false)
+          this.$router.push('/api/verify')
         })
         .catch(e => {
-          console.dir(e)
+          this.$swal({
+            icon: 'error',
+            title: 'AN ERROR OCCURED',
+            text: e.response.data.message
+          })
         })
 
       // fetch(process.env.VUE_APP_API_URL + '/api/register/user', {
 
       // })
-    }
-  }
+    },
+    ...mapActions('Auth', {
+      addUserToState: 'ADD_USER'
+    })
+  },
+  mounted() {}
 }
 </script>
 

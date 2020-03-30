@@ -17,6 +17,15 @@ export default [
   },
 
   {
+    path: '/api/verify',
+    name: 'verify-registration-mail',
+    meta: {
+      layout: 'default'
+    },
+    component: () => import('@/views/Auth/VerifyReg')
+  },
+
+  {
     path: '/login',
     name: 'Login',
     meta: {
