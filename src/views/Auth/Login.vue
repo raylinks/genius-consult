@@ -43,7 +43,7 @@
 
 <script>
 /* eslint-disable space-before-function-paren */
-import { mapActions } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 const RegisterForm = () => import('@/components/RegisterForm')
 export default {
   components: {
@@ -58,6 +58,22 @@ export default {
     ...mapActions('Auth', {
       login: 'AUTHENTICATE_USER'
     })
+  },
+  computed: {
+    ...mapGetters('Auth', {
+      error_message: 'ERROR_MESSAGE'
+    })
+  },
+  watch: {
+    error_message: function(newValue, oldValue) {
+      if (newValue !== '') {
+        this.$swal({
+          icon: 'error',
+          title: 'AN ERROR OCCURED',
+          text: newValue
+        })
+      }
+    }
   }
 }
 </script>

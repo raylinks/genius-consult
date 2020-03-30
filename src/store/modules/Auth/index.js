@@ -6,7 +6,9 @@ const initialState = {
   token: localStorage.getItem('token') || '',
   user: {},
   forgot_password_message: '',
-  forgot_password_status: false
+  forgot_password_status: false,
+  loading_status: false,
+  error_message: ''
 }
 
 export default {

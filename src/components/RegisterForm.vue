@@ -37,14 +37,21 @@
         </router-link>
       </div>
     </template>
-    <b-button pill variant="primary" type="submit" class="btn-genius-lg">
-      {{ type }}</b-button
+    <b-button
+      pill
+      variant="primary"
+      type="submit"
+      class="btn-genius-lg"
+      :disabled="valid || loader"
     >
+      {{ type }} <img v-if="loader" src="@/assets/svg/loader/loader.svg"
+    /></b-button>
   </b-form>
 </template>
 
 <script>
 /* eslint-disable space-before-function-paren */
+import { mapGetters } from 'vuex'
 export default {
   props: ['type'],
   data() {
@@ -52,7 +59,20 @@ export default {
       form: {
         email: '',
         password: ''
-      }
+      },
+      valid: true
+    }
+  },
+  computed: {
+    ...mapGetters('Auth', {
+      loader: 'LOADING_STATUS'
+    })
+  },
+  updated() {
+    if (this.form.email !== '' && this.form.password !== '') {
+      this.valid = false
+    } else {
+      this.valid = true
     }
   },
   methods: {

@@ -10,8 +10,14 @@ import '@babel/polyfill'
 
 // injecting bootstrap vue into app
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
+
+// importing sweetalert for use globally in app
+import VueSweetalert2 from 'vue-sweetalert2'
+import 'sweetalert2/dist/sweetalert2.min.css'
+
 Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
+Vue.use(VueSweetalert2)
 
 Vue.config.productionTip = false
 

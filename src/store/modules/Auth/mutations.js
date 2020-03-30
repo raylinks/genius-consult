@@ -13,6 +13,14 @@ const mutations = {
 
   SET_FORGOT_PASSWORD_STATUS: (state, payload) => {
     state.forgot_password_status = payload
+  },
+
+  SET_LOADING_STATUS: (state, payload) => {
+    state.loading_status = payload
+  },
+
+  SET_ERROR_MESSAGE: (state, payload) => {
+    state.error_message = payload
   }
 }
 
