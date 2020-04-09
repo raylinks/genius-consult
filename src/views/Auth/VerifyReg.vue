@@ -1,35 +1,20 @@
 <template>
   <div class="ver">
-    <h3>A confirmation mail has been sent to {{ user.email }}</h3>
+    <div>
+      <img src="@/assets/svg/logo.png" alt="" width="200px" />
+    </div>
+    <h3 class="mt-5">Your email has been verified succesfully</h3>
+    <router-link to="/login">Go to Login</router-link>
   </div>
 </template>
 
 <script>
 /* eslint-disable space-before-function-paren */
-import { mapGetters } from 'vuex'
-import { verifyUser } from '@/api/auth'
 export default {
   name: 'verify-registration-mail',
-  computed: {
-    ...mapGetters('Auth', {
-      user: 'getUser'
-    })
-  },
-  mounted() {
-    if (this.$route.query.token === undefined) {
+  created() {
+    if (!this.$route.query.user_id) {
       this.$router.push('/register')
-    } else {
-      verifyUser(this.$route.query.token)
-        .then(data => {
-          console.log(data)
-          this.$router.push('/login')
-        })
-        .catch(err => {
-          this.$swal({
-            icon: 'error',
-            text: err.response.data.message
-          })
-        })
     }
   }
 }
@@ -42,9 +27,27 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 
   h3 {
     color: black;
+  }
+
+  a {
+    color: white;
+    font-weight: 600;
+    background: $primary;
+    padding: 10px 30px;
+    border-radius: 50px;
+    margin-top: 20px;
+    border: 1px solid $primary;
+    transition: 500ms;
+
+    &:hover {
+      text-decoration: none;
+      color: $primary;
+      background: white;
+    }
   }
 }
 </style>

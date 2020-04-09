@@ -17,7 +17,7 @@ export default [
   },
 
   {
-    path: '/api/verify',
+    path: '/verify',
     name: 'verify-registration-mail',
     meta: {
       layout: 'default'

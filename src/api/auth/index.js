@@ -2,7 +2,7 @@
 import http from '@/utils/http'
 
 async function registerUser(userData) {
-  const user = await http.post('/register/user', userData)
+  const user = await http.post('/register/user?callback_url=' + process.env.VUE_APP_URL, userData)
   return user
 }
 

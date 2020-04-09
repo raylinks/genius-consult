@@ -123,10 +123,16 @@ export default {
       this.$store._mutations['Auth/SET_LOADING_STATUS'][0](true)
       registerUser(form)
         .then(data => {
+          console.log(data)
           this.$store._mutations['Auth/SET_LOADING_STATUS'][0](false)
-          this.$router.push('/api/verify')
+          this.$swal({
+            icon: 'success',
+            title: 'Registration Successful',
+            text: data.data.message
+          })
         })
         .catch(e => {
+          this.$store._mutations['Auth/SET_LOADING_STATUS'][0](false)
           this.$swal({
             icon: 'error',
             title: 'AN ERROR OCCURED',

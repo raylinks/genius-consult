@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="dashboard">
-      <router-link to="/resume/create" class="mt-10 btn-genius"
+      <router-link to="/resume/create/1" class="mt-10 btn-genius"
         >Create new Resume</router-link
       >
 
