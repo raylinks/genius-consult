@@ -2,6 +2,7 @@
   <div class="fillResume">
     <personal-questions @submitted="moveToNext"></personal-questions>
     <education-questions></education-questions>
+    <skills-questions></skills-questions>
   </div>
 </template>
 
@@ -9,11 +10,13 @@
 /* eslint-disable space-before-function-paren */
 import PersonalQuestions from '../../components/PersonalQuestions.vue'
 import EducationQuestions from '../../components/EducationQuestions.vue'
+import SkillsQuestions from '../../components/SkillsQuestions.vue'
 
 export default {
   components: {
     'personal-questions': PersonalQuestions,
-    'education-questions': EducationQuestions
+    'education-questions': EducationQuestions,
+    'skills-questions': SkillsQuestions
   },
 
   methods: {
@@ -61,7 +64,7 @@ export default {
     margin: auto;
     background: white;
     border-radius: 10px;
-    margin-top: 4rem ;
+    margin-top: 4rem;
     margin-bottom: 2rem !important;
 
     .top {

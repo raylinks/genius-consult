@@ -1,7 +1,7 @@
 <template>
   <div class="box">
     <div class="top">
-      <h4>Education</h4>
+      <h4>Skills</h4>
       <div class="trash">
         <svg
           height="20px"
@@ -33,100 +33,50 @@
           <b-row>
             <b-col cols="12" sm="6">
               <b-form-group
-                id="institution"
-                label="Institution"
-                label-for="institution-input"
+                id="category"
+                label="Skill Category"
+                label-for="category-input"
               >
                 <b-form-input
-                  id="institution-input"
+                  id="category-input"
                   v-model="form.institution"
+                  placeholder="e.g Languages"
                   type="text"
                   required
                 ></b-form-input>
               </b-form-group>
             </b-col>
 
-            <b-col cols="12" sm="6">
-              <b-form-group
-                id="fos"
-                label="Field of Study"
-                label-for="fos-input"
-              >
-                <b-form-input
-                  id="fos-input"
-                  v-model="form.field_of_study"
-                  type="text"
-                  required
-                ></b-form-input>
-              </b-form-group>
-            </b-col>
-
-            <b-col cols="12" sm="6" class="mt-3">
-              <b-form-group
-                id="country"
-                label="Country"
-                label-for="country-input"
-              >
-                <b-form-input
-                  id="country-input"
-                  v-model="form.country"
-                  type="text"
-                  required
-                ></b-form-input>
-              </b-form-group>
-            </b-col>
-
-            <b-col cols="12" sm="6" class="mt-3">
-              <b-form-group id="city" label="City" label-for="city-input">
-                <b-form-input
-                  id="city-input"
-                  v-model="form.city"
-                  type="text"
-                  required
-                ></b-form-input>
-              </b-form-group>
-            </b-col>
-
-            <b-row rows="12" class="select_section ">
-              <b-col cols="3">
-                <b-dropdown
-                  id="dropdown-1"
-                  text="Month"
-                  variant="outline-secondary"
-                  class="m-md-2"
+            <b-row rows="12" class="select_section mt-4">
+              <b-col cols="12" sm="6">
+                <b-form-group
+                  id="name"
+                  label="Skill Name"
+                  label-for="name-input"
                 >
-                </b-dropdown>
+                  <b-form-input
+                    id="name-input"
+                    v-model="form.institution"
+                    placeholder="e.g Languages"
+                    type="text"
+                    required
+                  ></b-form-input>
+                </b-form-group>
               </b-col>
-              <b-col cols="3">
-                <b-dropdown
-                  id="dropdown-1"
-                  text="Month"
-                  variant="outline-secondary"
-                  class="m-md-2"
+              <b-col cols="6">
+                <b-form-group
+                  id="category"
+                  label="Skill Level"
+                  label-for="category-input"
                 >
-                </b-dropdown>
-              </b-col>
-              <div class="hyphen">
-                <span>&ndash;</span>
-              </div>
-
-              <b-col cols="3">
-                <b-dropdown
-                  id="dropdown-1"
-                  text="Month"
-                  variant="outline-secondary"
-                  class="m-md-2"
-                >
-                </b-dropdown>
-              </b-col>
-              <b-col cols="3">
-                <b-dropdown
-                  id="dropdown-1"
-                  text="Month"
-                  variant="outline-secondary"
-                  class="m-md-2"
-                >
-                </b-dropdown>
+                  <b-dropdown
+                    id="dropdown-1"
+                    text="Month"
+                    variant="outline-secondary"
+                    class="m-md-2"
+                  >
+                  </b-dropdown>
+                </b-form-group>
               </b-col>
             </b-row>
           </b-row>
@@ -176,7 +126,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .top {
   position: relative;
 
@@ -187,7 +137,7 @@ export default {
 }
 
 .dropdown {
-  width: 100%;
+  width: 90%;
 }
 
 .btn-outline-secondary {
@@ -200,7 +150,6 @@ export default {
   justify-content: space-between;
   align-items: center;
   border-radius: 10px !important;
-  width: 100%;
 
   &:hover {
     background-color: #f3f3f3 !important;
@@ -209,8 +158,7 @@ export default {
 
 .select_section {
   margin: 0px !important;
-  margin-top: 20px !important;
-  width: 95%;
+  width: 100%;
   align-items: center;
   flex-wrap: nowrap !important;
 }
