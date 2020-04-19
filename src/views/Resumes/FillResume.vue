@@ -6,6 +6,7 @@
     <experience-questions></experience-questions>
     <reference-questions></reference-questions>
     <awards-questions></awards-questions>
+    <certificate-questions></certificate-questions>
   </div>
 </template>
 
@@ -17,6 +18,7 @@ import SkillsQuestions from '../../components/SkillsQuestions.vue'
 import ExperienceQuestions from '../../components/ExperienceQuestions.vue'
 import ReferenceQuestions from '../../components/ReferenceQuestions.vue'
 import AwardsQuestions from '../../components/AwardsQuestions.vue'
+import CertificateQuestions from '../../components/CertificateQuestions.vue'
 
 export default {
   components: {
@@ -25,7 +27,8 @@ export default {
     'skills-questions': SkillsQuestions,
     'experience-questions': ExperienceQuestions,
     'reference-questions': ReferenceQuestions,
-    'awards-questions': AwardsQuestions
+    'awards-questions': AwardsQuestions,
+    'certificate-questions': CertificateQuestions
   },
 
   methods: {
