@@ -1,7 +1,7 @@
 <template>
   <div class="box">
     <div class="top">
-      <h4>Reference</h4>
+      <h4>Awards</h4>
       <div class="trash">
         <svg
           height="20px"
@@ -32,14 +32,10 @@
         <b-form @submit.prevent="submit">
           <b-row>
             <b-col cols="12" sm="6">
-              <b-form-group
-                id="company-ref"
-                label="Company"
-                label-for="company-ref-input"
-              >
+              <b-form-group id="award" label="Title" label-for="award-input">
                 <b-form-input
-                  id="company-ref-input"
-                  v-model="form.company_ref"
+                  id="award-input"
+                  v-model="form.award"
                   type="text"
                   required
                 ></b-form-input>
@@ -47,45 +43,58 @@
             </b-col>
 
             <b-col cols="12" sm="6">
-              <b-form-group id="ref" label="Person Name" label-for="ref-input">
+              <b-form-group
+                id="issuer-title"
+                label="Issuer"
+                label-for="issuer-input"
+              >
                 <b-form-input
-                  id="ref-input"
-                  v-model="form.ref"
+                  id="issuer-input"
+                  v-model="form.issuer"
                   type="text"
                   required
                 ></b-form-input>
               </b-form-group>
             </b-col>
 
-            <b-col cols="12" sm="6" class="mt-3">
+            <b-col cols="12" class="mt-3">
               <b-form-group
-                id="contact-1"
-                label="Contact 1"
-                label-for="contact-1-input"
+                id="award-url"
+                label="URL to award"
+                label-for="award-url-input"
               >
                 <b-form-input
-                  id="contact-1-input"
-                  v-model="form.contact_1"
+                  id="award-url-input"
+                  v-model="form.country"
                   type="text"
                   required
                 ></b-form-input>
               </b-form-group>
             </b-col>
+            <div class="ml-3 mt-4">
+              <p class="m-auto">Date to award</p>
+            </div>
+            <b-row rows="12" class="select_section ">
+              <b-col cols="3">
+                <b-dropdown
+                  id="dropdown-1"
+                  text="Month"
+                  variant="outline-secondary"
+                  class="m-md-2"
+                >
+                </b-dropdown>
+              </b-col>
+              <b-col cols="3">
+                <b-dropdown
+                  id="dropdown-1"
+                  text="Month"
+                  variant="outline-secondary"
+                  class="m-md-2"
+                >
+                </b-dropdown>
+              </b-col>
+            </b-row>
 
-            <b-col cols="12" sm="6" class="mt-3">
-              <b-form-group
-                id="contact-two"
-                label="Contact Two"
-                label-for="contact-two-input"
-              >
-                <b-form-input
-                  id="contact-two-input"
-                  v-model="form.contact_two"
-                  type="text"
-                  required
-                ></b-form-input>
-              </b-form-group>
-            </b-col>
             <b-col cols="12" class="mt-3">
               <b-form-textarea
                 id="profile"
@@ -93,7 +102,7 @@
                 type="text"
                 placeholder="Enter Note"
                 rows="2"
-                max-rows="6"
+                max-rows="5"
                 class="p-3"
               ></b-form-textarea>
             </b-col>
@@ -152,5 +161,38 @@ export default {
     position: absolute;
     right: 20px;
   }
+}
+
+.dropdown {
+  width: 100%;
+}
+
+.btn-outline-secondary {
+  border: 1px solid #c2c2c2 !important;
+  color: #565656 !important;
+  background-color: transparent !important;
+  width: 100%;
+  text-align: left !important;
+  display: flex !important;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px !important;
+  width: 100%;
+
+  &:hover {
+    background-color: #f3f3f3 !important;
+  }
+}
+
+.select_section {
+  margin: 0px !important;
+  // margin-top: 20px !important;
+  width: 95%;
+  align-items: center;
+  flex-wrap: nowrap !important;
+}
+
+.hyphen {
+  margin-left: 15px;
 }
 </style>
