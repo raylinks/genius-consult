@@ -4,6 +4,7 @@
     <education-questions></education-questions>
     <skills-questions></skills-questions>
     <experience-questions></experience-questions>
+    <reference-questions></reference-questions>
   </div>
 </template>
 
@@ -13,13 +14,15 @@ import PersonalQuestions from '../../components/PersonalQuestions.vue'
 import EducationQuestions from '../../components/EducationQuestions.vue'
 import SkillsQuestions from '../../components/SkillsQuestions.vue'
 import ExperienceQuestions from '../../components/ExperienceQuestions.vue'
+import ReferenceQuestions from '../../components/ReferenceQuestions.vue'
 
 export default {
   components: {
     'personal-questions': PersonalQuestions,
     'education-questions': EducationQuestions,
     'skills-questions': SkillsQuestions,
-    'experience-questions': ExperienceQuestions
+    'experience-questions': ExperienceQuestions,
+    'reference-questions': ReferenceQuestions
   },
 
   methods: {
