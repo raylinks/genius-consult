@@ -1,17 +1,32 @@
 <template>
   <div class="fillResume">
     <personal-questions @submitted="moveToNext"></personal-questions>
-    <education-questions></education-questions>
-    <skills-questions></skills-questions>
-    <experience-questions></experience-questions>
-    <reference-questions></reference-questions>
-    <awards-questions></awards-questions>
-    <certificate-questions></certificate-questions>
+    <template v-if="questions.includes('education')">
+      <education-questions></education-questions>
+    </template>
+    <template v-if="questions.includes('skills')">
+      <skills-questions></skills-questions>
+    </template>
+    <template v-if="questions.includes('experience')">
+      <experience-questions></experience-questions>
+    </template>
+    <template v-if="questions.includes('reference')">
+      <reference-questions></reference-questions>
+    </template>
+    <template v-if="questions.includes('award')">
+      <awards-questions></awards-questions>
+    </template>
+    <template v-if="questions.includes('certificate')">
+      <certificate-questions></certificate-questions>
+    </template>
+
+    <other-sections @addSection="addSection"></other-sections>
   </div>
 </template>
 
 <script>
 /* eslint-disable space-before-function-paren */
+import { mapGetters } from 'vuex'
 import PersonalQuestions from '../../components/PersonalQuestions.vue'
 import EducationQuestions from '../../components/EducationQuestions.vue'
 import SkillsQuestions from '../../components/SkillsQuestions.vue'
@@ -19,6 +34,7 @@ import ExperienceQuestions from '../../components/ExperienceQuestions.vue'
 import ReferenceQuestions from '../../components/ReferenceQuestions.vue'
 import AwardsQuestions from '../../components/AwardsQuestions.vue'
 import CertificateQuestions from '../../components/CertificateQuestions.vue'
+import OtherSections from '../../components/OtherSections.vue'
 
 export default {
   components: {
@@ -28,11 +44,29 @@ export default {
     'experience-questions': ExperienceQuestions,
     'reference-questions': ReferenceQuestions,
     'awards-questions': AwardsQuestions,
-    'certificate-questions': CertificateQuestions
+    'certificate-questions': CertificateQuestions,
+    'other-sections': OtherSections
+  },
+  data() {
+    return {
+      questions: []
+    }
+  },
+  computed: {
+    ...mapGetters('Resume', {
+      personal_questions: 'GET_PERSONAL_QUESTIONS'
+    })
   },
 
   methods: {
-    moveToNext() {}
+    moveToNext() {},
+    addSection(section) {
+      if (
+        this.questions.filter(question => question === section.toLowerCase())
+      ) {
+        this.questions.push(section.toLowerCase())
+      }
+    }
   }
 }
 </script>

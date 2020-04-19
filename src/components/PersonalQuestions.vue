@@ -12,7 +12,7 @@
       </div>
 
       <div class="questions">
-        <b-form @submit.prevent="submit">
+        <b-form @submit.prevent="submit(form)">
           <b-row>
             <b-col cols="12" sm="6">
               <b-row>
@@ -191,6 +191,9 @@
             >Continue</b-button
           >
         </b-form>
+        <p :class="`mt-2 text-danger ${message.type === 'Success'? 'text-success' : 'text-danger'}`">
+          {{ message.note }}
+        </p>
       </div>
     </div>
   </div>
@@ -198,41 +201,42 @@
 
 <script>
 /* eslint-disable space-before-function-paren */
-import { submitPersonalQuestions } from '@/api/resume'
+import { mapActions, mapGetters } from 'vuex'
 export default {
   data() {
-    return {
-      form: {
-        title: '',
-        firstname: '',
-        lastname: '',
-        date_of_birth: '',
-        nationality: '',
-        phone: '',
-        email: '',
-        web: '',
-        address: '',
-        profile: '',
-        picture_url: '',
+    return {}
+  },
+
+  computed: {
+    ...mapGetters('Resume', {
+      personal_questions: 'GET_PERSONAL_QUESTIONS',
+      message: 'GET_MESSAGE'
+    }),
+
+    form: function() {
+      return {
+        title: this.personal_questions.title || '',
+        firstname: this.personal_questions.firstname || '',
+        lastname: this.personal_questions.lastname || '',
+        date_of_birth: this.personal_questions.date_of_birth || '',
+        nationality: this.personal_questions.nationality || '',
+        phone: this.personal_questions.phone || '',
+        email: this.personal_questions.email || '',
+        web: this.personal_questions.web || '',
+        address: this.personal_questions.address || '',
+        profile: this.personal_questions.profile || '',
+        picture_url: this.personal_questions.picture_url || '',
         interest: 'interest'
       }
     }
   },
 
   methods: {
-    submit() {
-      submitPersonalQuestions(this.form)
-        .then(data => {
-          this.$emit('submitted')
-        })
-        .catch(err => {
-          console.dir(err)
-        })
-    }
+    ...mapActions('Resume', {
+      submit: 'SAVE_PERSONAL_DETAILS'
+    })
   }
 }
 </script>
 
-<style lang="scss">
-
-</style>
+<style lang="scss"></style>
