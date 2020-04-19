@@ -17,7 +17,7 @@ const actions = {
         router.push('/dashboard')
         // mutating the state 'token' using the SET_TOKEN mutation and response from the api
         commit('SET_TOKEN', responseData.token)
-        localStorage.setItem('token', responseData.token)
+        localStorage.setItem('token', data.data.message)
         commit('SET_USER', responseData.data)
         commit('SET_LOADING_STATUS', false)
       })

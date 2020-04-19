@@ -37,7 +37,7 @@ export default {
 
 <style lang="scss" scoped>
 .nav {
-  position: absolute;
+  position: fixed;
   top: 0;
   padding: 10px 30px !important;
 

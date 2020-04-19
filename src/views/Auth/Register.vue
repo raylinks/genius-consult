@@ -123,7 +123,6 @@ export default {
       this.$store._mutations['Auth/SET_LOADING_STATUS'][0](true)
       registerUser(form)
         .then(data => {
-          console.log(data)
           this.$store._mutations['Auth/SET_LOADING_STATUS'][0](false)
           this.$swal({
             icon: 'success',

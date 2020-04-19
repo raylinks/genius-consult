@@ -40,9 +40,6 @@
             >
           </li>
         </ul>
-        <div class="btn-wrapper">
-          <button class="btn-download">Download</button>
-        </div>
       </div>
       <slot />
     </div>
@@ -57,7 +54,7 @@ export default {
 
 <style lang="scss" scoped>
 .nav {
-  position: absolute;
+  position: fixed;
   top: 0;
   padding: 10px 30px !important;
 
@@ -69,6 +66,9 @@ export default {
 }
 
 .navbar {
+  position: fixed;
+  width: 100%;
+  z-index: 999;
   background: linear-gradient(345deg, #262626 0%, #4b4b4b 100%) !important;
 }
 
@@ -79,16 +79,19 @@ export default {
 }
 
 .sideBar {
-  background-color: #333;
-  min-height: 100vh;
   width: 300px;
   display: flex;
   flex-direction: column;
   z-index: 1150;
 
   .list-group {
+    background-color: #333;
+    height: 100vh;
     display: flex;
     flex-direction: column;
+    position: fixed;
+    top: 55px;
+    width: 250px;
 
     .list-item {
       font-size: 1rem;
