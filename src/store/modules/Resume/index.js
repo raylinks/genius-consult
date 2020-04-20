@@ -18,7 +18,8 @@ const initialState = {
   experience_questions:
     JSON.parse(localStorage.getItem('experience_questions')) || [],
   skills: JSON.parse(localStorage.getItem('skills')) || [],
-  reference: JSON.parse(localStorage.getItem('reference')) || []
+  reference: JSON.parse(localStorage.getItem('reference')) || [],
+  certificate: JSON.parse(localStorage.getItem('certificate')) || []
 }
 
 export default {

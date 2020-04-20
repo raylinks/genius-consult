@@ -29,7 +29,7 @@
       <div class="picture-col"></div>
 
       <div class="questions">
-        <b-form @submit.prevent="submit">
+        <b-form @submit.prevent="submit(form)">
           <b-row>
             <b-col cols="12" sm="6">
               <b-form-group
@@ -39,7 +39,7 @@
               >
                 <b-form-input
                   id="certification-input"
-                  v-model="form.certification"
+                  v-model="form.name"
                   type="text"
                   required
                 ></b-form-input>
@@ -69,7 +69,7 @@
               >
                 <b-form-input
                   id="certification-url-input"
-                  v-model="form.certification_url"
+                  v-model="form.url"
                   type="text"
                   required
                 ></b-form-input>
@@ -79,27 +79,17 @@
               <p class="m-auto">Date of Certification</p>
             </div>
             <b-row rows="12" class="select_section ">
-              <b-col cols="3">
-                <b-dropdown
-                  id="dropdown-1"
-                  text="Month"
-                  variant="outline-secondary"
-                  class="m-md-2"
-                >
-                </b-dropdown>
-              </b-col>
-              <b-col cols="3">
-                <b-dropdown
-                  id="dropdown-1"
-                  text="Month"
-                  variant="outline-secondary"
-                  class="m-md-2"
-                >
-                </b-dropdown>
+              <b-col cols="6">
+                <b-form-input
+                  id="dob-input"
+                  v-model="form.date"
+                  type="date"
+                  required
+                ></b-form-input>
               </b-col>
             </b-row>
 
-            <b-col cols="12" class="mt-3">
+            <!-- <b-col cols="12" class="mt-3">
               <b-form-textarea
                 id="profile"
                 v-model="form.profile"
@@ -109,12 +99,23 @@
                 max-rows="5"
                 class="p-3"
               ></b-form-textarea>
-            </b-col>
+            </b-col> -->
           </b-row>
           <b-button type="submit" variant="primary" class="mt-4 px-5" pill
             >Submit</b-button
           >
         </b-form>
+        <p
+          :class="
+            `mt-2 text-danger ${
+              message.certificate.type === 'Success'
+                ? 'text-success'
+                : 'text-danger'
+            }`
+          "
+        >
+          {{ message.certificate.note }}
+        </p>
       </div>
     </div>
   </div>
@@ -122,37 +123,29 @@
 
 <script>
 /* eslint-disable space-before-function-paren */
-import { submitPersonalQuestions } from '@/api/resume'
+import { mapActions, mapGetters } from 'vuex'
 export default {
   data() {
     return {
       form: {
-        title: '',
-        firstname: '',
-        lastname: '',
-        date_of_birth: '',
-        nationality: '',
-        phone: '',
-        email: '',
-        web: '',
-        address: '',
-        profile: '',
-        picture_url: '',
-        interest: 'interest'
+        name: '',
+        authority: '',
+        url: '',
+        date: ''
       }
     }
   },
 
+  computed: {
+    ...mapGetters('Resume', {
+      message: 'GET_MESSAGE'
+    })
+  },
+
   methods: {
-    submit() {
-      submitPersonalQuestions(this.form)
-        .then(data => {
-          this.$emit('submitted')
-        })
-        .catch(err => {
-          console.dir(err)
-        })
-    }
+    ...mapActions('Resume', {
+      submit: 'SAVE_CERTIFICATE'
+    })
   }
 }
 </script>

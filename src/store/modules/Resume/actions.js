@@ -3,7 +3,8 @@ import {
   submitExperienceQuestions,
   submitSkillsQuestions,
   submitRefQuestions,
-  submitAwardQuestions
+  submitAwardQuestions,
+  submitCertificateQuestions
 } from '@/api/resume'
 
 const actions = {
@@ -98,6 +99,23 @@ const actions = {
           type: 'Error',
           note: err.response.data.message,
           category: 'award'
+        })
+      })
+    })
+  },
+
+  SAVE_CERTIFICATE: ({ commit }, payload) => {
+    submitCertificateQuestions(payload).then(data => {
+      commit('SET_CERTIFICATE', payload)
+      commit('SET_MESSAGE', {
+        type: 'Success',
+        note: data.data.message,
+        category: 'certificate'
+      }).catch(err => {
+        commit('SET_MESSAGE', {
+          type: 'Error',
+          note: err.response.data.message,
+          category: 'certificate'
         })
       })
     })

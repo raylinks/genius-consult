@@ -64,10 +64,21 @@ async function submitAwardQuestions(info) {
   return data
 }
 
+async function submitCertificateQuestions(info) {
+  const data = await http.post('certificate', {
+    name: info.name,
+    authority: info.authority,
+    url: info.url,
+    date: info.date
+  })
+  return data
+}
+
 export {
   submitPersonalQuestions,
   submitExperienceQuestions,
   submitSkillsQuestions,
   submitRefQuestions,
-  submitAwardQuestions
+  submitAwardQuestions,
+  submitCertificateQuestions
 }

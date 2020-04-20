@@ -35,6 +35,11 @@ const mutations = {
   SET_AWARD: (state, payload) => {
     state.award.push(payload)
     localStorage.setItem('skill', JSON.stringify(state.award))
+  },
+
+  SET_CERTIFICATE: (state, payload) => {
+    state.certificate.push(payload)
+    localStorage.setItem('skill', JSON.stringify(state.certificate))
   }
 }
 
