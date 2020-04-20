@@ -29,7 +29,7 @@
       <div class="picture-col"></div>
 
       <div class="questions">
-        <b-form @submit.prevent="submit">
+        <b-form @submit.prevent="submit(form)">
           <b-row>
             <b-col cols="12" sm="6">
               <b-form-group
@@ -39,7 +39,7 @@
               >
                 <b-form-input
                   id="company-ref-input"
-                  v-model="form.company_ref"
+                  v-model="form.company_name"
                   type="text"
                   required
                 ></b-form-input>
@@ -50,7 +50,7 @@
               <b-form-group id="ref" label="Person Name" label-for="ref-input">
                 <b-form-input
                   id="ref-input"
-                  v-model="form.ref"
+                  v-model="form.name"
                   type="text"
                   required
                 ></b-form-input>
@@ -80,7 +80,7 @@
               >
                 <b-form-input
                   id="contact-two-input"
-                  v-model="form.contact_two"
+                  v-model="form.contact_2"
                   type="text"
                   required
                 ></b-form-input>
@@ -89,7 +89,7 @@
             <b-col cols="12" class="mt-3">
               <b-form-textarea
                 id="profile"
-                v-model="form.profile"
+                v-model="form.note"
                 type="text"
                 placeholder="Enter Note"
                 rows="2"
@@ -102,6 +102,18 @@
             >Submit</b-button
           >
         </b-form>
+
+        <p
+          :class="
+            `mt-2 text-danger ${
+              message.reference.type === 'Success'
+                ? 'text-success'
+                : 'text-danger'
+            }`
+          "
+        >
+          {{ message.reference.note }}
+        </p>
       </div>
     </div>
   </div>
@@ -109,37 +121,30 @@
 
 <script>
 /* eslint-disable space-before-function-paren */
-import { submitPersonalQuestions } from '@/api/resume'
+import { mapActions, mapGetters } from 'vuex'
 export default {
   data() {
     return {
       form: {
-        title: '',
-        firstname: '',
-        lastname: '',
-        date_of_birth: '',
-        nationality: '',
-        phone: '',
-        email: '',
-        web: '',
-        address: '',
-        profile: '',
-        picture_url: '',
-        interest: 'interest'
+        company_name: '',
+        name: '',
+        contact_1: '',
+        contact_2: '',
+        note: ''
       }
     }
   },
 
+  computed: {
+    ...mapGetters('Resume', {
+      message: 'GET_MESSAGE'
+    })
+  },
+
   methods: {
-    submit() {
-      submitPersonalQuestions(this.form)
-        .then(data => {
-          this.$emit('submitted')
-        })
-        .catch(err => {
-          console.dir(err)
-        })
-    }
+    ...mapActions('Resume', {
+      submit: 'SAVE_REFERENCE'
+    })
   }
 }
 </script>

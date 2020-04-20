@@ -1,7 +1,8 @@
 import {
   submitPersonalQuestions,
   submitExperienceQuestions,
-  submitSkillsQuestions
+  submitSkillsQuestions,
+  submitRefQuestions
 } from '@/api/resume'
 
 const actions = {
@@ -65,6 +66,22 @@ const actions = {
           category: 'skills'
         })
       })
+  },
+  SAVE_REFERENCE: ({ commit }, payload) => {
+    submitRefQuestions(payload).then(data => {
+      commit('SET_REFERENCE', payload)
+      commit('SET_MESSAGE', {
+        type: 'Success',
+        note: data.data.message,
+        category: 'reference'
+      }).catch(err => {
+        commit('SET_MESSAGE', {
+          type: 'Error',
+          note: err.response.data.message,
+          category: 'reference'
+        })
+      })
+    })
   }
 }
 

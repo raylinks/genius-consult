@@ -42,8 +42,20 @@ async function submitSkillsQuestions(info) {
   return data
 }
 
+async function submitRefQuestions(info) {
+  const data = await http.post('reference/details', {
+    company_name: info.company_name,
+    name: info.name,
+    contact_1: info.contact_1,
+    contact_2: info.contact_2,
+    note: info.note
+  })
+  return data
+}
+
 export {
   submitPersonalQuestions,
   submitExperienceQuestions,
-  submitSkillsQuestions
+  submitSkillsQuestions,
+  submitRefQuestions
 }

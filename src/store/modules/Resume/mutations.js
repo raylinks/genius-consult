@@ -25,6 +25,11 @@ const mutations = {
   SET_SKILLS: (state, payload) => {
     state.skills.push(payload)
     localStorage.setItem('skill', JSON.stringify(state.skills))
+  },
+
+  SET_REFERENCE: (state, payload) => {
+    state.reference.push(payload)
+    localStorage.setItem('skill', JSON.stringify(state.reference))
   }
 }
 
