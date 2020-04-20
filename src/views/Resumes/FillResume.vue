@@ -13,7 +13,7 @@
     <template v-if="questions.includes('reference')">
       <reference-questions></reference-questions>
     </template>
-    <template v-if="questions.includes('award')">
+    <template v-if="questions.includes('awards')">
       <awards-questions></awards-questions>
     </template>
     <template v-if="questions.includes('certificate')">

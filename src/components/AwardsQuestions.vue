@@ -35,7 +35,7 @@
               <b-form-group id="award" label="Title" label-for="award-input">
                 <b-form-input
                   id="award-input"
-                  v-model="form.award"
+                  v-model="form.title"
                   type="text"
                   required
                 ></b-form-input>
@@ -65,7 +65,7 @@
               >
                 <b-form-input
                   id="award-url-input"
-                  v-model="form.country"
+                  v-model="form.web_url"
                   type="text"
                   required
                 ></b-form-input>
@@ -75,30 +75,20 @@
               <p class="m-auto">Date to award</p>
             </div>
             <b-row rows="12" class="select_section ">
-              <b-col cols="3">
-                <b-dropdown
-                  id="dropdown-1"
-                  text="Month"
-                  variant="outline-secondary"
-                  class="m-md-2"
-                >
-                </b-dropdown>
-              </b-col>
-              <b-col cols="3">
-                <b-dropdown
-                  id="dropdown-1"
-                  text="Month"
-                  variant="outline-secondary"
-                  class="m-md-2"
-                >
-                </b-dropdown>
+              <b-col cols="6">
+                <b-form-input
+                  id="dob-input"
+                  v-model="form.date"
+                  type="date"
+                  required
+                ></b-form-input>
               </b-col>
             </b-row>
 
             <b-col cols="12" class="mt-3">
               <b-form-textarea
                 id="profile"
-                v-model="form.profile"
+                v-model="form.note"
                 type="text"
                 placeholder="Enter Note"
                 rows="2"
@@ -111,6 +101,15 @@
             >Submit</b-button
           >
         </b-form>
+        <p
+          :class="
+            `mt-2 text-danger ${
+              message.award.type === 'Success' ? 'text-success' : 'text-danger'
+            }`
+          "
+        >
+          {{ message.award.note }}
+        </p>
       </div>
     </div>
   </div>
@@ -118,37 +117,30 @@
 
 <script>
 /* eslint-disable space-before-function-paren */
-import { submitPersonalQuestions } from '@/api/resume'
+import { mapActions, mapGetters } from 'vuex'
 export default {
   data() {
     return {
       form: {
         title: '',
-        firstname: '',
-        lastname: '',
-        date_of_birth: '',
-        nationality: '',
-        phone: '',
-        email: '',
-        web: '',
-        address: '',
-        profile: '',
-        picture_url: '',
-        interest: 'interest'
+        issuer: '',
+        web_url: '',
+        date: '',
+        note: ''
       }
     }
   },
 
+  computed: {
+    ...mapGetters('Resume', {
+      message: 'GET_MESSAGE'
+    })
+  },
+
   methods: {
-    submit() {
-      submitPersonalQuestions(this.form)
-        .then(data => {
-          this.$emit('submitted')
-        })
-        .catch(err => {
-          console.dir(err)
-        })
-    }
+    ...mapActions('Resume', {
+      submit: 'SAVE_AWARDS'
+    })
   }
 }
 </script>

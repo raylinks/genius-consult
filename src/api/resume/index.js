@@ -53,9 +53,21 @@ async function submitRefQuestions(info) {
   return data
 }
 
+async function submitAwardQuestions(info) {
+  const data = await http.post('award/details', {
+    title: info.title,
+    issuer: info.issuer,
+    web_url: info.web_url,
+    date: info.date,
+    note: info.note
+  })
+  return data
+}
+
 export {
   submitPersonalQuestions,
   submitExperienceQuestions,
   submitSkillsQuestions,
-  submitRefQuestions
+  submitRefQuestions,
+  submitAwardQuestions
 }

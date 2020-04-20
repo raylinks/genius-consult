@@ -4,7 +4,8 @@ const getters = {
   GET_QUESTIONS: state => state.questions,
   GET_EXPERIENCE: state => state.experience_questions,
   GET_SKILLS: state => state.skills,
-  GET_REFERENCE: state => state.reference
+  GET_REFERENCE: state => state.reference,
+  GET_AWARD: state => state.award
 }
 
 export default getters
