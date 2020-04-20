@@ -19,4 +19,18 @@ async function submitPersonalQuestions(info) {
   return data
 }
 
-export { submitPersonalQuestions }
+async function submitExperienceQuestions(info) {
+  const data = await http.post('work/experience', {
+    company_name: info.company_name,
+    job_title: info.job_title,
+    country: info.country,
+    city: info.city,
+    time_from: info.month_from + ' ' + info.year_from,
+    time_to: info.month_to + ' ' + info.year_to,
+    currently_work: info.currently_work,
+    note: info.note
+  })
+  return data
+}
+
+export { submitPersonalQuestions, submitExperienceQuestions }

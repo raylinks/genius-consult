@@ -5,7 +5,18 @@ import mutations from './mutations'
 const initialState = {
   personal_questions:
     JSON.parse(localStorage.getItem('personal_questions')) || {},
-  message: {}
+  message: {
+    personal: {},
+    experience: {},
+    education: {},
+    skills: {},
+    awards: {},
+    certificate: {},
+    reference: {}
+  },
+  questions: JSON.parse(localStorage.getItem('questions')) || [],
+  experience_questions:
+    JSON.parse(localStorage.getItem('experience_questions')) || []
 }
 
 export default {

@@ -191,8 +191,16 @@
             >Continue</b-button
           >
         </b-form>
-        <p :class="`mt-2 text-danger ${message.type === 'Success'? 'text-success' : 'text-danger'}`">
-          {{ message.note }}
+        <p
+          :class="
+            `mt-2 text-danger ${
+              message.personal.type === 'Success'
+                ? 'text-success'
+                : 'text-danger'
+            }`
+          "
+        >
+          {{ message.personal.note }}
         </p>
       </div>
     </div>

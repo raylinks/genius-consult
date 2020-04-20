@@ -29,7 +29,7 @@
       <div class="picture-col"></div>
 
       <div class="questions">
-        <b-form @submit.prevent="submit">
+        <b-form @submit.prevent="submit(form)">
           <b-row>
             <b-col cols="12" sm="6">
               <b-form-group
@@ -39,7 +39,7 @@
               >
                 <b-form-input
                   id="company-input"
-                  v-model="form.company"
+                  v-model="form.company_name"
                   type="text"
                   required
                 ></b-form-input>
@@ -89,54 +89,79 @@
 
             <b-row rows="12" class="select_section ">
               <b-col cols="3">
-                <b-dropdown
+                <!-- <b-dropdown
                   id="dropdown-1"
                   text="Month"
                   variant="outline-secondary"
                   class="m-md-2"
                 >
-                </b-dropdown>
+                </b-dropdown> -->
+                <b-form-input
+                  id="month-from-input"
+                  v-model="form.month_from"
+                  type="text"
+                  placeholder="Month"
+                  required
+                ></b-form-input>
               </b-col>
               <b-col cols="3">
-                <b-dropdown
+                <!-- <b-dropdown
                   id="dropdown-1"
                   text="Month"
                   variant="outline-secondary"
                   class="m-md-2"
                 >
-                </b-dropdown>
+                </b-dropdown> -->
+                <b-form-input
+                  id="year-from-input"
+                  v-model="form.year_from"
+                  type="number"
+                  placeholder="Year"
+                  required
+                ></b-form-input>
               </b-col>
               <div class="hyphen">
                 <span>&ndash;</span>
               </div>
 
               <b-col cols="3">
-                <b-dropdown
+                <!-- <b-dropdown
                   id="dropdown-1"
                   text="Month"
                   variant="outline-secondary"
                   class="m-md-2"
                 >
-                </b-dropdown>
+                </b-dropdown> -->
+
+                <b-form-input
+                  id="month-to-input"
+                  v-model="form.month_to"
+                  type="text"
+                  placeholder="Month"
+                ></b-form-input>
               </b-col>
               <b-col cols="3">
-                <b-dropdown
+                <!-- <b-dropdown
                   id="dropdown-1"
                   text="Month"
                   variant="outline-secondary"
                   class="m-md-2"
                 >
-                </b-dropdown>
+                </b-dropdown> -->
+                <b-form-input
+                  id="year-to-input"
+                  v-model="form.year_to"
+                  type="number"
+                  placeholder="Year"
+                ></b-form-input>
               </b-col>
             </b-row>
 
             <b-form-checkbox
-              id="checkbox-1"
-              v-model="status"
-              name="checkbox-1"
-              value="accepted"
-              unchecked-value="not_accepted"
-              class="ml-auto mr-3"
+              id="current-work"
+              v-model="form.currently_work"
+              name="current-work"
+              class="ml-auto mr-3 mt-2"
             >
               Currently work here
             </b-form-checkbox>
@@ -144,7 +169,7 @@
             <b-col cols="12" class="mt-3">
               <b-form-textarea
                 id="profile"
-                v-model="form.profile"
+                v-model="form.note"
                 type="text"
                 placeholder="Enter Note"
                 rows="4"
@@ -157,6 +182,18 @@
             >Submit</b-button
           >
         </b-form>
+
+        <p
+          :class="
+            `mt-2 text-danger ${
+              message.experience.type === 'Success'
+                ? 'text-success'
+                : 'text-danger'
+            }`
+          "
+        >
+          {{ message.experience.note }}
+        </p>
       </div>
     </div>
   </div>
@@ -164,37 +201,35 @@
 
 <script>
 /* eslint-disable space-before-function-paren */
-import { submitPersonalQuestions } from '@/api/resume'
+import { mapActions, mapGetters } from 'vuex'
 export default {
   data() {
     return {
       form: {
-        title: '',
-        firstname: '',
-        lastname: '',
-        date_of_birth: '',
-        nationality: '',
-        phone: '',
-        email: '',
-        web: '',
-        address: '',
-        profile: '',
-        picture_url: '',
-        interest: 'interest'
+        company_name: '',
+        job_title: '',
+        country: '',
+        city: '',
+        month_from: '',
+        month_to: '',
+        year_from: '',
+        year_to: '',
+        currently_work: '',
+        note: ''
       }
     }
   },
 
+  computed: {
+    ...mapGetters('Resume', {
+      message: 'GET_MESSAGE'
+    })
+  },
+
   methods: {
-    submit() {
-      submitPersonalQuestions(this.form)
-        .then(data => {
-          this.$emit('submitted')
-        })
-        .catch(err => {
-          console.dir(err)
-        })
-    }
+    ...mapActions('Resume', {
+      submit: 'SAVE_EXPERIENCE_QUESTIONS'
+    })
   }
 }
 </script>

@@ -152,7 +152,7 @@ export default {
 }
 
 .hints {
-  padding: 40px 20px;
+  padding: 40px 0px;
   width: 25%;
   .img {
     display: flex;
@@ -168,7 +168,7 @@ export default {
     }
 
     p {
-      font-size: 16px;
+      font-size: 15px;
     }
   }
 }

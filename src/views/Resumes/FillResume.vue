@@ -26,7 +26,7 @@
 
 <script>
 /* eslint-disable space-before-function-paren */
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 import PersonalQuestions from '../../components/PersonalQuestions.vue'
 import EducationQuestions from '../../components/EducationQuestions.vue'
 import SkillsQuestions from '../../components/SkillsQuestions.vue'
@@ -49,22 +49,27 @@ export default {
   },
   data() {
     return {
-      questions: []
+      // mutableQuestions: []
     }
   },
   computed: {
     ...mapGetters('Resume', {
-      personal_questions: 'GET_PERSONAL_QUESTIONS'
+      personal_questions: 'GET_PERSONAL_QUESTIONS',
+      questions: 'GET_QUESTIONS'
     })
   },
 
   methods: {
+    ...mapActions('Resume', {
+      setQuestion: 'SAVE_QUESTIONS'
+    }),
     moveToNext() {},
     addSection(section) {
       if (
         this.questions.filter(question => question === section.toLowerCase())
       ) {
         this.questions.push(section.toLowerCase())
+        this.setQuestion(this.questions)
       }
     }
   }
