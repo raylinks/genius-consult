@@ -33,4 +33,17 @@ async function submitExperienceQuestions(info) {
   return data
 }
 
-export { submitPersonalQuestions, submitExperienceQuestions }
+async function submitSkillsQuestions(info) {
+  const data = await http.post('skills/details', {
+    skill_category: info.skill_category,
+    skill_name: info.skill_name,
+    skill_level: info.skill_level
+  })
+  return data
+}
+
+export {
+  submitPersonalQuestions,
+  submitExperienceQuestions,
+  submitSkillsQuestions
+}

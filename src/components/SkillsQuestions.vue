@@ -29,7 +29,7 @@
       <div class="picture-col"></div>
 
       <div class="questions">
-        <b-form @submit.prevent="submit">
+        <b-form @submit.prevent="submit(form)">
           <b-row>
             <b-col cols="12" sm="6">
               <b-form-group
@@ -39,7 +39,7 @@
               >
                 <b-form-input
                   id="category-input"
-                  v-model="form.institution"
+                  v-model="form.skill_category"
                   placeholder="e.g Languages"
                   type="text"
                   required
@@ -56,8 +56,8 @@
                 >
                   <b-form-input
                     id="name-input"
-                    v-model="form.institution"
-                    placeholder="e.g Languages"
+                    v-model="form.skill_name"
+                    placeholder="e.g English"
                     type="text"
                     required
                   ></b-form-input>
@@ -69,14 +69,20 @@
                   label="Skill Level"
                   label-for="category-input"
                 >
-                  <b-dropdown
-                    id="dropdown-1"
-                    text="Month"
-                    variant="outline-secondary"
-                    class="m-md-2"
-                  >
-                  </b-dropdown>
                 </b-form-group>
+                <b-dropdown
+                  id="dropdown-1"
+                  :text="form.skill_level || 'Month'"
+                  variant="outline-secondary"
+                  class="m-md-2"
+                >
+                  <b-dropdown-item
+                    v-for="(level, i) in levels"
+                    :key="i"
+                    @click="form.skill_level = level"
+                    >{{ level }}</b-dropdown-item
+                  >
+                </b-dropdown>
               </b-col>
             </b-row>
           </b-row>
@@ -84,6 +90,16 @@
             >Submit</b-button
           >
         </b-form>
+
+        <p
+          :class="
+            `mt-2 text-danger ${
+              message.skills.type === 'Success' ? 'text-success' : 'text-danger'
+            }`
+          "
+        >
+          {{ message.skills.note }}
+        </p>
       </div>
     </div>
   </div>
@@ -91,37 +107,29 @@
 
 <script>
 /* eslint-disable space-before-function-paren */
-import { submitPersonalQuestions } from '@/api/resume'
+import { mapActions, mapGetters } from 'vuex'
 export default {
   data() {
     return {
       form: {
-        title: '',
-        firstname: '',
-        lastname: '',
-        date_of_birth: '',
-        nationality: '',
-        phone: '',
-        email: '',
-        web: '',
-        address: '',
-        profile: '',
-        picture_url: '',
-        interest: 'interest'
-      }
+        skill_category: '',
+        skill_name: '',
+        skill_level: ''
+      },
+      levels: ['Beginner', 'Intermediate', 'Expert']
     }
   },
 
+  computed: {
+    ...mapGetters('Resume', {
+      message: 'GET_MESSAGE'
+    })
+  },
+
   methods: {
-    submit() {
-      submitPersonalQuestions(this.form)
-        .then(data => {
-          this.$emit('submitted')
-        })
-        .catch(err => {
-          console.dir(err)
-        })
-    }
+    ...mapActions('Resume', {
+      submit: 'SAVE_SKILLS'
+    })
   }
 }
 </script>

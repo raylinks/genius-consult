@@ -20,6 +20,11 @@ const mutations = {
       'experience_questions',
       JSON.stringify(state.experience_questions)
     )
+  },
+
+  SET_SKILLS: (state, payload) => {
+    state.skills.push(payload)
+    localStorage.setItem('skill', JSON.stringify(state.skills))
   }
 }
 
