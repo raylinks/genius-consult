@@ -1,5 +1,7 @@
 <template>
-    <div id="app"></div>
+    <div id="app">
+        <router-view />
+    </div>
 </template>
 
 <script>
@@ -9,7 +11,7 @@ export default {
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap');
 #app {
     font-family: 'Open Sans', sans-serif;
     -webkit-font-smoothing: antialiased;
