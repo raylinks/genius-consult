@@ -14,4 +14,9 @@ export default [
         name: 'Login',
         component: () => import('@/views/Auth/Register'),
     },
+    {
+        path: '/verify',
+        name: 'Login',
+        component: () => import('@/views/Auth/Verify'),
+    },
 ]
