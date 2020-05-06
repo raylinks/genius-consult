@@ -19,4 +19,9 @@ export default [
         name: 'Verify',
         component: () => import('@/views/Auth/Verify'),
     },
+    {
+        path: '/forgot-password',
+        name: 'forgot-password',
+        component: () => import('@/views/Auth/ForgotPassword'),
+    },
 ]
