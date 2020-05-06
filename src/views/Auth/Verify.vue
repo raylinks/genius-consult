@@ -18,7 +18,13 @@
 </template>
 
 <script>
-export default {}
+export default {
+    created() {
+        if (!this.$route.query.user_id) {
+            this.$router.push('/register')
+        }
+    },
+}
 </script>
 
 <style lang="scss" scoped>
