@@ -14,11 +14,68 @@
                 class="lg:flex items-center h-full px-10 pb-10 lg:pb-0 lg:px-0"
                 :class="isOpenMobile ? 'block bg-white' : 'hidden bg-transparent'"
             >
-                <li class="flex items-center nav_item mr-6 xl:mr-10 mb-4 lg:mb-0">
-                    Services <img src="@/assets/svg/caret-down.svg" alt="" class="ml-1" />
+                <li
+                    class="nav_item mr-6 xl:mr-10 mb-4 lg:mb-0 cursor-pointer relative"
+                    @mouseover="showNav = 1"
+                    @mouseleave="showNav = ''"
+                >
+                    <div class="flex items-center">
+                        Services <img src="@/assets/svg/caret-down.svg" alt="" class="ml-1" />
+                    </div>
+                    <template v-if="showNav === 1">
+                        <div class="md:absolute">
+                            <ul class="bg-white shadow-lg mt-4 w-64 rounded-md">
+                                <li class="text-center py-4 hover:bg-blue-light hover:text-blue-primary duration-500">
+                                    <span>CV/Resume Writing</span>
+                                </li>
+                                <li class="text-center py-4 hover:bg-blue-light hover:text-blue-primary duration-500">
+                                    <span>Cover letter writing </span>
+                                </li>
+                                <li class="text-center py-4 hover:bg-blue-light hover:text-blue-primary duration-500">
+                                    <span>LinkedIn Profile Optimization </span>
+                                </li>
+                                <li class="text-center py-4 hover:bg-blue-light hover:text-blue-primary duration-500">
+                                    <span>Personal Statement/Motivation letters </span>
+                                </li>
+                                <li class="text-center py-4 hover:bg-blue-light hover:text-blue-primary duration-500">
+                                    <span>Business Plan</span>
+                                </li>
+                                <li class="text-center py-4 hover:bg-blue-light hover:text-blue-primary duration-500">
+                                    <span> Business Proposal </span>
+                                </li>
+                                <li class="text-center py-4 hover:bg-blue-light hover:text-blue-primary duration-500">
+                                    <span>Academic and Research Work</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </template>
                 </li>
-                <li class="flex items-center nav_item mr-6 xl:mr-10 mb-4 lg:mb-0">
-                    Resources <img src="@/assets/svg/caret-down.svg" alt="" class="ml-1" />
+                <li
+                    class="nav_item mr-6 xl:mr-10 mb-4 lg:mb-0 cursor-pointer relative"
+                    @mouseover="showNav = 2"
+                    @mouseleave="showNav = ''"
+                >
+                    <div class="flex items-center ">
+                        Resources <img src="@/assets/svg/caret-down.svg" alt="" class="ml-1" />
+                    </div>
+                    <template v-if="showNav === 2">
+                        <div class="md:absolute">
+                            <ul class="bg-white shadow-lg mt-4 w-64 rounded-md">
+                                <li class="text-center py-4 hover:bg-blue-light hover:text-blue-primary duration-500">
+                                    <span>Learning & Development</span>
+                                </li>
+                                <li class="text-center py-4 hover:bg-blue-light hover:text-blue-primary duration-500">
+                                    <span>Mentorship Platform </span>
+                                </li>
+                                <li class="text-center py-4 hover:bg-blue-light hover:text-blue-primary duration-500">
+                                    <span>Training </span>
+                                </li>
+                                <li class="text-center py-4 hover:bg-blue-light hover:text-blue-primary duration-500">
+                                    <span>Ambassadors & Referrals </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </template>
                 </li>
                 <li class="flex items-center nav_item mr-6 xl:mr-10 mb-4 lg:mb-0">
                     Pricing
@@ -29,18 +86,44 @@
                 <li class="flex items-center nav_item mr-6 xl:mr-10 mb-4 lg:mb-0">
                     Blog
                 </li>
-                <li
-                    class="flex items-center nav_item mr-6 xl:mr-10 mb-4 lg:mb-0 text-light-gray hover:text-blue-primary duration-500"
-                >
-                    <router-link to="/login">Log in</router-link>
-                </li>
-                <li>
-                    <router-link
-                        to="/register"
-                        class="btn bg-blue-primary rounded-full px-10 py-2 h-10 font-semibold flex items-center justify-center text-white"
-                        >Sign Up</router-link
+                <template v-if="!user">
+                    <li
+                        class="flex items-center nav_item mr-6 xl:mr-10 mb-4 lg:mb-0 text-light-gray hover:text-blue-primary duration-500"
                     >
-                </li>
+                        <router-link to="/login">Log in</router-link>
+                    </li>
+                    <li>
+                        <router-link
+                            to="/register"
+                            class="btn bg-blue-primary rounded-full px-10 py-2 h-10 font-semibold flex items-center justify-center text-white"
+                            >Sign Up</router-link
+                        >
+                    </li>
+                </template>
+                <template v-else>
+                    <li
+                        class="nav_item mr-6 xl:mr-10 mb-4 lg:mb-0 cursor-pointer relative"
+                        @mouseover="showNav = 3"
+                        @mouseleave="showNav = ''"
+                    >
+                        <div class="flex items-center">
+                            <img src="@/assets/svg/ellipse.svg" alt="" class="mr-2" />{{ user.email }}
+                            <img src="@/assets/svg/caret-down.svg" alt="" class="ml-1" />
+                        </div>
+                        <template v-if="showNav === 3">
+                            <div class="md:absolute right-0">
+                                <ul class="bg-white shadow-lg mt-4 w-40 rounded-md ">
+                                    <li
+                                        class="text-center py-4 hover:bg-blue-light hover:text-blue-primary duration-500"
+                                        @click="logout"
+                                    >
+                                        <span>Logout</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </template>
+                    </li>
+                </template>
             </ul>
         </nav>
     </header>
@@ -51,7 +134,20 @@ export default {
     data() {
         return {
             isOpenMobile: false,
+            showNav: '',
         }
+    },
+    methods: {
+        logout() {
+            localStorage.removeItem('token')
+            localStorage.removeItem('user')
+            this.$router.go()
+        },
+    },
+    computed: {
+        user: function() {
+            return JSON.parse(localStorage.getItem('user'))
+        },
     },
 }
 </script>
