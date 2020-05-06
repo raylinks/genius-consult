@@ -12,6 +12,7 @@ module.exports = {
             },
             transparent: 'transparent',
             dark: '#3F3D56',
+            danger: 'red',
         },
     },
 }

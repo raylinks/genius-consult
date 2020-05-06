@@ -25,25 +25,39 @@
                     <template v-if="showNav === 1">
                         <div class="md:absolute">
                             <ul class="bg-white shadow-lg mt-4 w-64 rounded-md">
-                                <li class="text-center py-4 hover:bg-blue-light hover:text-blue-primary duration-500">
-                                    <span>CV/Resume Writing</span>
+                                <li
+                                    class="text-left px-5 py-4 hover:bg-blue-light hover:text-blue-primary duration-500"
+                                >
+                                    <router-link :to="user ? '/resume' : '/login'">CV/Resume Writing</router-link>
                                 </li>
-                                <li class="text-center py-4 hover:bg-blue-light hover:text-blue-primary duration-500">
+                                <li
+                                    class="text-left px-5 py-4 hover:bg-blue-light hover:text-blue-primary duration-500"
+                                >
                                     <span>Cover letter writing </span>
                                 </li>
-                                <li class="text-center py-4 hover:bg-blue-light hover:text-blue-primary duration-500">
+                                <li
+                                    class="text-left px-5 py-4 hover:bg-blue-light hover:text-blue-primary duration-500"
+                                >
                                     <span>LinkedIn Profile Optimization </span>
                                 </li>
-                                <li class="text-center py-4 hover:bg-blue-light hover:text-blue-primary duration-500">
+                                <li
+                                    class="text-left px-5 py-4 hover:bg-blue-light hover:text-blue-primary duration-500"
+                                >
                                     <span>Personal Statement/Motivation letters </span>
                                 </li>
-                                <li class="text-center py-4 hover:bg-blue-light hover:text-blue-primary duration-500">
+                                <li
+                                    class="text-left px-5 py-4 hover:bg-blue-light hover:text-blue-primary duration-500"
+                                >
                                     <span>Business Plan</span>
                                 </li>
-                                <li class="text-center py-4 hover:bg-blue-light hover:text-blue-primary duration-500">
+                                <li
+                                    class="text-left px-5 py-4 hover:bg-blue-light hover:text-blue-primary duration-500"
+                                >
                                     <span> Business Proposal </span>
                                 </li>
-                                <li class="text-center py-4 hover:bg-blue-light hover:text-blue-primary duration-500">
+                                <li
+                                    class="text-left px-5 py-4 hover:bg-blue-light hover:text-blue-primary duration-500"
+                                >
                                     <span>Academic and Research Work</span>
                                 </li>
                             </ul>
@@ -55,22 +69,30 @@
                     @mouseover="showNav = 2"
                     @mouseleave="showNav = ''"
                 >
-                    <div class="flex items-center ">
+                    <div class="flex items-center">
                         Resources <img src="@/assets/svg/caret-down.svg" alt="" class="ml-1" />
                     </div>
                     <template v-if="showNav === 2">
                         <div class="md:absolute">
                             <ul class="bg-white shadow-lg mt-4 w-64 rounded-md">
-                                <li class="text-center py-4 hover:bg-blue-light hover:text-blue-primary duration-500">
+                                <li
+                                    class="text-left px-5 py-4 hover:bg-blue-light hover:text-blue-primary duration-500"
+                                >
                                     <span>Learning & Development</span>
                                 </li>
-                                <li class="text-center py-4 hover:bg-blue-light hover:text-blue-primary duration-500">
+                                <li
+                                    class="text-left px-5 py-4 hover:bg-blue-light hover:text-blue-primary duration-500"
+                                >
                                     <span>Mentorship Platform </span>
                                 </li>
-                                <li class="text-center py-4 hover:bg-blue-light hover:text-blue-primary duration-500">
+                                <li
+                                    class="text-left px-5 py-4 hover:bg-blue-light hover:text-blue-primary duration-500"
+                                >
                                     <span>Training </span>
                                 </li>
-                                <li class="text-center py-4 hover:bg-blue-light hover:text-blue-primary duration-500">
+                                <li
+                                    class="text-left px-5 py-4 hover:bg-blue-light hover:text-blue-primary duration-500"
+                                >
                                     <span>Ambassadors & Referrals </span>
                                 </li>
                             </ul>

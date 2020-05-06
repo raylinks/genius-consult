@@ -11,12 +11,12 @@ export default [
     },
     {
         path: '/register',
-        name: 'Login',
+        name: 'Register',
         component: () => import('@/views/Auth/Register'),
     },
     {
         path: '/verify',
-        name: 'Login',
+        name: 'Verify',
         component: () => import('@/views/Auth/Verify'),
     },
 ]

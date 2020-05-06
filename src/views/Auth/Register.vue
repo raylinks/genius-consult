@@ -4,44 +4,54 @@
             <div class="bg-white rounded-lg py-10 px-12">
                 <h3 class="font-semibold text-dark">Create a new account</h3>
 
-                <form class="mt-12">
+                <form class="mt-12" @submit.prevent="register">
                     <div class="flex flex-col">
                         <label for="email">Email address</label>
                         <input
                             type="email"
                             name="email"
                             id="email"
+                            v-model="form.email"
                             class="rounded-lg px-6 mt-3 border border-dark py-4"
+                            autocomplete="email"
                             placeholder="Enter Email Address"
+                            required
                         />
                     </div>
 
                     <div class="flex flex-col mt-8">
-                        <label for="email">Password</label>
+                        <label for="password">Password</label>
                         <input
-                            type="email"
-                            name="email"
-                            id="email"
+                            type="password"
+                            name="password"
+                            id="password"
+                            v-model="form.password"
                             class="rounded-lg px-6 py-4 mt-3 border border-light-gray"
                             placeholder="Password (6 -10 characters long)"
+                            autocomplete="new-password"
+                            required
                         />
                     </div>
                     <div class="flex flex-col mt-8">
-                        <label for="email">Confirm Password</label>
+                        <label for="confirm-password">Confirm Password</label>
                         <input
-                            type="email"
-                            name="email"
-                            id="email"
+                            type="password"
+                            name="confirm-password"
+                            autocomplete="new-password"
+                            id="confirm-password"
+                            v-model="confirm_password"
                             class="rounded-lg px-6 py-4 mt-3 border border-light-gray"
                             placeholder="Confirm Password"
+                            required
                         />
                     </div>
-
                     <div class="mt-10">
                         <button
+                            type="submit"
+                            :disabled="loading || form.email === '' || form.password === '' || confirm_password === ''"
                             class="bg-blue-primary py-2 rounded-full flex items-center justify-center font-semibold w-full text-white"
                         >
-                            Register
+                            Register<template v-if="loading"><img src="@/assets/svg/load.svg" class="ml-2"/></template>
                         </button>
                     </div>
                 </form>
@@ -54,10 +64,63 @@
 </template>
 
 <script>
-export default {}
+import { register } from '@/services/auth'
+export default {
+    data() {
+        return {
+            form: {
+                email: '',
+                password: '',
+            },
+            loading: false,
+            confirm_password: '',
+        }
+    },
+    computed: {
+        passwordMatch: function() {
+            return this.form.password === this.confirm_password
+        },
+    },
+    methods: {
+        register() {
+            if (this.passwordMatch) {
+                this.loading = true
+                register(this.form)
+                    .then((data) => {
+                        this.loading = false
+                        this.$swal({
+                            icon: 'success',
+                            title: 'Success',
+                            text: data.data.message,
+                            focusConfirm: false,
+                        })
+                    })
+                    .catch((err) => {
+                        this.loading = false
+                        this.$swal({
+                            icon: 'error',
+                            title: 'Sorry',
+                            text: err.response ? err.response.data.message : err.message,
+                            focusConfirm: false,
+                        })
+                    })
+            } else {
+                this.$swal({
+                    icon: 'error',
+                    text: 'Passwords do not match',
+                })
+            }
+        },
+    },
+}
 </script>
 
 <style lang="scss" scoped>
+button[disabled] {
+    opacity: 0.7;
+    cursor: not-allowed !important;
+}
+
 h3 {
     font-size: 38px;
     letter-spacing: 0.03em;
