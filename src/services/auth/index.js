@@ -9,3 +9,8 @@ export const register = async (form) => {
     const data = await http.post('/register/user', { email: form.email, password: form.password })
     return data
 }
+
+export const forgotPassword = async (email) => {
+    const data = await http.post('/forgotpassword', { email })
+    return data
+}

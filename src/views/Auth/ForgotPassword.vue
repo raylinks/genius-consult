@@ -12,6 +12,7 @@
                             type="email"
                             name="email"
                             id="email"
+                            v-model="email"
                             class="rounded-lg px-6 mt-3 border border-dark py-4"
                             placeholder="Enter Email Address"
                         />
@@ -20,9 +21,10 @@
                     <div class="mt-10">
                         <button
                             type="submit"
+                            :disabled="loading || email == ''"
                             class="bg-blue-primary py-2 rounded-full flex items-center justify-center font-semibold w-full text-white"
                         >
-                            Submit
+                            Submit<template v-if="loading"><img src="@/assets/svg/load.svg" class="ml-2"/></template>
                         </button>
                     </div>
                 </form>
@@ -30,6 +32,42 @@
         </div>
     </div>
 </template>
+
+<script>
+import { forgotPassword } from '@/services/auth'
+export default {
+    data() {
+        return {
+            email: '',
+            loading: false,
+        }
+    },
+    methods: {
+        requestLink() {
+            this.loading = true
+            forgotPassword(this.email)
+                .then((data) => {
+                    this.loading = false
+                    this.$swal({
+                        icon: 'success',
+                        title: 'Success',
+                        text: data.data.message,
+                        focusConfirm: false,
+                    })
+                })
+                .catch((err) => {
+                    this.loading = false
+                    this.$swal({
+                        icon: 'error',
+                        title: 'An Error occured',
+                        text: err.response.data.message,
+                        focusConfirm: false,
+                    })
+                })
+        },
+    },
+}
+</script>
 
 <style lang="scss" scoped>
 .welcome_text {
