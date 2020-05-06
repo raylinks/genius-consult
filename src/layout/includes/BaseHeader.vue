@@ -1,6 +1,6 @@
 <template>
     <header class="h-24 lg:flex justify-between items-center lg:w-10/12 xl:w-4/5 mx-auto absolute top-0 inset-x-0">
-        <div class="flex justify-between items-center w-10/12 mx-auto lg:w-auto">
+        <div class="flex justify-between items-center w-10/12 mx-auto lg:mx-0 lg:w-auto">
             <img src="@/assets/svg/logo.svg" alt="" />
 
             <div class="strokes lg:hidden block" @click="isOpenMobile = !isOpenMobile">
@@ -10,7 +10,10 @@
             </div>
         </div>
         <nav>
-            <ul class="lg:flex items-center h-full px-10 pb-10" :class="isOpenMobile ? 'block bg-white' : 'hidden bg-transparent'">
+            <ul
+                class="lg:flex items-center h-full px-10 pb-10 lg:pb-0 lg:px-0"
+                :class="isOpenMobile ? 'block bg-white' : 'hidden bg-transparent'"
+            >
                 <li class="flex items-center nav_item mr-6 xl:mr-10 mb-4 lg:mb-0">
                     Services <img src="@/assets/svg/caret-down.svg" alt="" class="ml-1" />
                 </li>
@@ -26,13 +29,16 @@
                 <li class="flex items-center nav_item mr-6 xl:mr-10 mb-4 lg:mb-0">
                     Blog
                 </li>
-                <li class="flex items-center nav_item mr-6 xl:mr-10 mb-4 lg:mb-0 text-light-gray">
-                    Log in
+                <li
+                    class="flex items-center nav_item mr-6 xl:mr-10 mb-4 lg:mb-0 text-light-gray hover:text-blue-primary duration-500"
+                >
+                    <router-link to="/login">Log in</router-link>
                 </li>
                 <li>
-                    <a
+                    <router-link
+                        to="/register"
                         class="btn bg-blue-primary rounded-full px-10 py-2 h-10 font-semibold flex items-center justify-center text-white"
-                        >Sign Up</a
+                        >Sign Up</router-link
                     >
                 </li>
             </ul>
