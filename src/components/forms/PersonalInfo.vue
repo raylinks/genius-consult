@@ -54,6 +54,10 @@
                     <div class="mt-10">
                         <textarea type="text" name="profile" id="profile" placeholder="Profile" rows="6"></textarea>
                     </div>
+
+                    <div class="mt-10 flex justify-center">
+                        <button class="bg-blue-primary py-3 px-16 text-white rounded-full">Submit</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -66,7 +70,7 @@ export default {}
 
 <style lang="scss" scoped>
 .wrapper {
-    border: 1px solid #9f9eaa;
+    
 
     h2 {
         font-size: 30px;
