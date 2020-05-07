@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="grid grid-cols-4 gap-10 w-11/12 mx-auto">
+        <div class="grid grid-cols-4 w-11/12 mx-auto">
             <div class="col-span-1">
                 <img src="@/assets/img/placeholder.png" />
             </div>
