@@ -2,6 +2,7 @@
     <div class="w-9/12 mx-auto mt-10">
         <personal-info />
         <skills />
+        <education />
         <other-sections />
     </div>
 </template>
@@ -10,6 +11,7 @@
 import PersonalInfo from '@/components/forms/PersonalInfo'
 import OtherSections from '@/components/forms/OtherSections'
 import Skills from '@/components/forms/Skills'
+import Education from '@/components/forms/Education'
 
 export default {
     data() {
@@ -21,6 +23,7 @@ export default {
         PersonalInfo,
         OtherSections,
         Skills,
+        Education,
     },
 }
 </script>
