@@ -24,4 +24,9 @@ export default [
         name: 'forgot-password',
         component: () => import('@/views/Auth/ForgotPassword'),
     },
+    {
+        path: '/resume',
+        name: 'Resume',
+        component: () => import('@/views/Resume'),
+    },
 ]
