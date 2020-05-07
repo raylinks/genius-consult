@@ -70,29 +70,8 @@ export default {}
 
 <style lang="scss" scoped>
 .wrapper {
-    
-
     h2 {
         font-size: 30px;
-    }
-
-    .left {
-        border-right: 1px solid #9f9eaa;
-    }
-
-    input {
-        padding: 10px;
-        height: 55px;
-        border: 1px solid #abaabe;
-        width: 100%;
-        border-radius: 10px;
-    }
-
-    textarea {
-        padding: 15px;
-        border: 1px solid #abaabe;
-        width: 100%;
-        border-radius: 10px;
     }
 }
 </style>
