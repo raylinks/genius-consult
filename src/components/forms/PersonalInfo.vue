@@ -1,10 +1,10 @@
 <template>
-    <div class="wrapper rounded-lg">
-        <div class="bg-blue-special h-16 w-full rounded-tl-lg rounded-tr-lg flex items-center justify-center">
+    <div class="wrapper mg:rounded-lg mx-auto">
+        <div class="bg-blue-special h-16 w-full lg:rounded-tl-lg lg:rounded-tr-lg flex items-center justify-center">
             <h2 class="font-semibold">Personal Info</h2>
         </div>
-        <div class="grid grid-cols-5">
-            <div class="col-span-1 left flex flex-col items-center pt-10">
+        <div class="grid grid-cols-5 justify-center">
+            <div class="md:col-span-1 col-span-5 left flex flex-col items-center pt-10">
                 <div class="img">
                     <img src="@/assets/svg/placeholder.svg" alt="" />
                 </div>
@@ -13,9 +13,9 @@
                 </div>
             </div>
 
-            <div class="col-span-4">
+            <div class="md:col-span-4 col-span-5">
                 <div class="w-11/12 mx-auto mt-10 mb-10">
-                    <div class="grid grid-cols-5 w-full gap-5">
+                    <div class="grid grid-cols-5 w-full gap-2 md:gap-5">
                         <div class="col-span-1">
                             <input type="text" placeholder="Title" />
                         </div>
@@ -27,7 +27,7 @@
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-2 mt-10 gap-10">
+                    <div class="grid grid-cols-2 mt-10 gap-2 md:gap-10">
                         <div class="col-span-1">
                             <input type="date" name="dob" id="dob" placeholder="Date of Birth" />
                         </div>
@@ -35,7 +35,7 @@
                             <input type="text" name="nationality" id="nationality" placeholder="Nationality" />
                         </div>
                     </div>
-                    <div class="grid grid-cols-2 mt-10 gap-10">
+                    <div class="grid grid-cols-2 mt-10 gap-2 md:gap-10">
                         <div class="col-span-1">
                             <input type="number" name="phone-number" id="phone-number" placeholder="Date of Birth" />
                         </div>

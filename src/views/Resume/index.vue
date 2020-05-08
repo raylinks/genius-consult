@@ -2,7 +2,7 @@
     <default-layout>
         <div class="min-h-screen">
             <div class="h-32 w-full bg-transparent"></div>
-            <div class="flex items-center justify-between w-8/12 mx-auto mb-3">
+            <div class="flex items-center justify-between w-11/12 xl:w-8/12 mx-auto mb-3">
                 <p class="text-dark font-semibold">Select Template</p>
                 <p class="text-dark font-semibold">Fill Form</p>
                 <p class="text-dark font-semibold">Make Payment</p>

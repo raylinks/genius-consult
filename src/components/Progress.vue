@@ -14,7 +14,21 @@ export default {
     data() {
         return {
             span: 20,
+            width: '',
         }
+    },
+    mounted() {
+        this.width = window.screen.width
+    },
+    watch: {
+        // eslint-disable-next-line no-unused-vars
+        width: function(newWidth, OldWidth) {
+            if (newWidth < 900 && newWidth > 640) {
+                this.span = 14
+            } else if (newWidth < 640) {
+                this.span = 5
+            }
+        },
     },
 }
 </script>

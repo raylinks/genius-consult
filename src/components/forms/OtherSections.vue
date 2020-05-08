@@ -1,11 +1,11 @@
 <template>
-    <div class="wrapper rounded-lg mt-20">
-        <div class="bg-dark h-16 w-full rounded-tl-lg rounded-tr-lg flex items-center justify-center">
+    <div class="wrapper lg:rounded-lg mt-20">
+        <div class="bg-dark h-16 w-full lg:rounded-tl-lg lg:rounded-tr-lg flex items-center justify-center">
             <h2 class="font-semibold text-white">Add new section</h2>
         </div>
 
         <div class="grid  grid-cols-4">
-            <div class="col-span-3">
+            <div class="col-span-4 md:col-span-3">
                 <div class="flex items-center flex-wrap mt-10 w-11/12 ml-auto">
                     <div
                         class="section_wrapper wrapper rounded-lg h-24 w-32 flex flex-col items-center justify-center mr-10 mb-10 cursor-pointer duration-500"
@@ -25,7 +25,7 @@
                 </div>
             </div>
 
-            <div class="col-span-1">
+            <div class="col-span-4 md:col-span-1 hidden md:block">
                 <div class="flex items-center flex-col mt-10 w-10/12 ml-4">
                     <div class="mb-2">
                         <img

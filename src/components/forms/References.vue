@@ -1,28 +1,28 @@
 <template>
-    <div class="wrapper rounded-lg mt-20">
-        <div class="bg-blue-special h-16 w-full rounded-tl-lg rounded-tr-lg flex items-center justify-center">
+    <div class="wrapper lg:rounded-lg mt-20">
+        <div class="bg-blue-special h-16 w-full lg:rounded-tl-lg lg:rounded-tr-lg flex items-center justify-center">
             <h2 class="font-semibold">References</h2>
         </div>
         <div class="grid grid-cols-5">
-            <div class="col-span-1 left">
+            <div class="col-span-5 md:col-span-1 left">
                 <div class="w-full py-3 bg-dark text-white text-center">
                     {{ title }}
                 </div>
             </div>
 
-            <div class="col-span-4">
+            <div class="col-span-5 md:col-span-4">
                 <div class="w-11/12 mx-auto mt-10 mb-10">
-                    <div class="grid grid-cols-2 gap-10">
-                        <div class="col-span-1">
+                    <div class="grid grid-cols-2 gap-5 md:gap-10">
+                        <div class="col-span-2 md:col-span-1">
                             <input type="text" placeholder="Company Name" />
                         </div>
-                        <div class="col-span-1">
+                        <div class="col-span-2 md:col-span-1">
                             <input type="text" placeholder="Name" />
                         </div>
-                        <div class="col-span-1">
+                        <div class="col-span-2 md:col-span-1">
                             <input type="text" placeholder="Contact 1" />
                         </div>
-                        <div class="col-span-1">
+                        <div class="col-span-2 md:col-span-1">
                             <input type="text" placeholder="Contact 2" />
                         </div>
                     </div>

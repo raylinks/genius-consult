@@ -1,5 +1,5 @@
 <template>
-    <div class="w-9/12 mx-auto mt-10">
+    <div class="w-full lg:w-10/12 xl:w-9/12 mx-auto mt-10">
         <personal-info />
         <template v-if="sections.includes('education')">
             <education />
@@ -10,13 +10,13 @@
         <template v-if="sections.includes('experience')">
             <experience />
         </template>
-        <template v-if="sections.includes('reference')">
+        <template v-if="sections.includes('references')">
             <references />
         </template>
         <template v-if="sections.includes('awards')">
             <awards />
         </template>
-        <template v-if="sections.includes('certificate')">
+        <template v-if="sections.includes('certificates')">
             <certificate />
         </template>
         <other-sections @addSection="addSection" />
@@ -36,13 +36,11 @@ import Certificate from '@/components/forms/Certificate'
 export default {
     data() {
         return {
-            mutableSections: [],
+            sections: [],
         }
     },
-    computed: {
-        sections: () => {
-            return JSON.parse(localStorage.getItem('sections')) || []
-        },
+    mounted() {
+        this.sections = JSON.parse(localStorage.getItem('sections')) || []
     },
     components: {
         PersonalInfo,
@@ -56,8 +54,8 @@ export default {
     },
     methods: {
         addSection(value) {
-            this.mutableSections.push(value.toLowerCase())
-            localStorage.setItem('sections', JSON.stringify(this.mutableSections))
+            this.sections.push(value.toLowerCase())
+            localStorage.setItem('sections', JSON.stringify(this.sections))
         },
     },
 }
@@ -69,6 +67,9 @@ export default {
 
     .left {
         border-right: 1px solid #9f9eaa;
+        @media (max-width: 640px) {
+            border-right: 0px !important;
+        }
     }
 
     input[type='text'],
