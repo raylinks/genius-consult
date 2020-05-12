@@ -1,5 +1,5 @@
 <template>
-    <div class="wrapper mg:rounded-lg mx-auto">
+    <div class="wrapper lg:rounded-lg mx-auto">
         <div class="bg-blue-special h-16 w-full lg:rounded-tl-lg lg:rounded-tr-lg flex items-center justify-center">
             <h2 class="font-semibold">Personal Info</h2>
         </div>
