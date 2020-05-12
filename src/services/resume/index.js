@@ -32,6 +32,19 @@ async function submitExperience(info) {
     return data
 }
 
+async function submitEducation(info) {
+    const data = await http.post('education/details', {
+        institution: info.company_name,
+        field_of_study: info.job_title,
+        country: info.country,
+        city: info.city,
+        time_from: info.month_from + ' ' + info.year_from,
+        time_to: info.month_to + ' ' + info.year_to,
+        currently_work: info.currently_work,
+    })
+    return data
+}
+
 async function submitSkills(info) {
     const data = await http.post('skills/details', {
         skill_category: info.skill_category,
@@ -73,4 +86,12 @@ async function submitCertificate(info) {
     return data
 }
 
-export { submitPersonalInfo, submitExperience, submitSkills, submitReference, submitAward, submitCertificate }
+export {
+    submitPersonalInfo,
+    submitExperience,
+    submitSkills,
+    submitReference,
+    submitAward,
+    submitCertificate,
+    submitEducation,
+}
