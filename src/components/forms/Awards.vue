@@ -39,7 +39,7 @@
                             <input type="text" placeholder="Issuer" v-model="form.issuer" required />
                         </div>
                         <div class="col-span-1">
-                            <input type="url" placeholder="Link to Award" v-model="form.url" required />
+                            <input type="url" placeholder="Link to Award" v-model="form.web_url" required />
                         </div>
                         <div class="col-span-1">
                             <input type="date" placeholder="date" v-model="form.date" required />
