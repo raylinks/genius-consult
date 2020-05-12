@@ -145,9 +145,7 @@ export default {
                 })
         },
 
-        addNew() {
-            
-        },
+        addNew() {},
     },
 }
 </script>
