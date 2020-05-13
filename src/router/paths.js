@@ -35,8 +35,23 @@ export default [
         component: () => import('@/views/Blog'),
     },
     {
-        path: '/blog/:title',
-        name: 'Blog',
+        path: '/blog/:id',
+        name: 'Blog Post',
         component: () => import('@/views/Blog/Post'),
+    },
+    {
+        path: '/admin/blog',
+        name: 'Blog Posts',
+        component: () => import('@/views/Blog/AllPosts'),
+    },
+    // {
+    //     path: '/admin/blog/:id',
+    //     name: 'Edit Blog Post',
+    //     component: () => import('@/views/Blog/AllPosts'),
+    // },
+    {
+        path: '/admin/blog/create',
+        name: 'Create Blog Post',
+        component: () => import('@/views/Blog/Create'),
     },
 ]

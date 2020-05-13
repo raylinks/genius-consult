@@ -104,7 +104,7 @@ export default {
 
 .blog-title {
     font-weight: 600;
-    font-size: 24px;
+    font-size: 24px !important;
     letter-spacing: 0.03em;
 }
 

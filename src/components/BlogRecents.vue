@@ -55,7 +55,7 @@ export default {}
 
     h2 {
         font-weight: 600;
-        font-size: 36px;
+        font-size: 36px !important;
         letter-spacing: 0.01em;
         color: #3f3d56;
     }
