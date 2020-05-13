@@ -14,100 +14,113 @@
                 class="lg:flex items-center h-full px-10 pb-10 lg:pb-0 lg:px-0"
                 :class="isOpenMobile ? 'block bg-white' : 'hidden bg-transparent'"
             >
-                <li
-                    class="nav_item mr-6 xl:mr-10 mb-4 lg:mb-0 cursor-pointer relative"
-                    @mouseover="showNav = 1"
-                    @mouseleave="showNav = ''"
-                >
-                    <div class="flex items-center">
-                        Services <img src="@/assets/svg/caret-down.svg" alt="" class="ml-1" />
-                    </div>
-                    <template v-if="showNav === 1">
-                        <div class="md:absolute">
-                            <ul class="bg-white shadow-lg mt-4 w-64 rounded-md">
-                                <li
-                                    class="text-left px-5 py-4 hover:bg-blue-light hover:text-blue-primary duration-500"
-                                >
-                                    <router-link :to="user ? '/resume' : '/login'">CV/Resume Writing</router-link>
-                                </li>
-                                <li
-                                    class="text-left px-5 py-4 hover:bg-blue-light hover:text-blue-primary duration-500"
-                                >
-                                    <span>Cover letter writing </span>
-                                </li>
-                                <li
-                                    class="text-left px-5 py-4 hover:bg-blue-light hover:text-blue-primary duration-500"
-                                >
-                                    <span>LinkedIn Profile Optimization </span>
-                                </li>
-                                <li
-                                    class="text-left px-5 py-4 hover:bg-blue-light hover:text-blue-primary duration-500"
-                                >
-                                    <span>Personal Statement/Motivation letters </span>
-                                </li>
-                                <li
-                                    class="text-left px-5 py-4 hover:bg-blue-light hover:text-blue-primary duration-500"
-                                >
-                                    <span>Business Plan</span>
-                                </li>
-                                <li
-                                    class="text-left px-5 py-4 hover:bg-blue-light hover:text-blue-primary duration-500"
-                                >
-                                    <span> Business Proposal </span>
-                                </li>
-                                <li
-                                    class="text-left px-5 py-4 hover:bg-blue-light hover:text-blue-primary duration-500"
-                                >
-                                    <span>Academic and Research Work</span>
-                                </li>
-                            </ul>
+                <template v-if="!blog">
+                    <li
+                        class="nav_item mr-6 xl:mr-10 mb-4 lg:mb-0 cursor-pointer relative"
+                        @mouseover="showNav = 1"
+                        @mouseleave="showNav = ''"
+                    >
+                        <div class="flex items-center">
+                            Services <img src="@/assets/svg/caret-down.svg" alt="" class="ml-1" />
                         </div>
-                    </template>
-                </li>
-                <li
-                    class="nav_item mr-6 xl:mr-10 mb-4 lg:mb-0 cursor-pointer relative"
-                    @mouseover="showNav = 2"
-                    @mouseleave="showNav = ''"
-                >
-                    <div class="flex items-center">
-                        Resources <img src="@/assets/svg/caret-down.svg" alt="" class="ml-1" />
-                    </div>
-                    <template v-if="showNav === 2">
-                        <div class="md:absolute">
-                            <ul class="bg-white shadow-lg mt-4 w-64 rounded-md">
-                                <li
-                                    class="text-left px-5 py-4 hover:bg-blue-light hover:text-blue-primary duration-500"
-                                >
-                                    <span>Learning & Development</span>
-                                </li>
-                                <li
-                                    class="text-left px-5 py-4 hover:bg-blue-light hover:text-blue-primary duration-500"
-                                >
-                                    <span>Mentorship Platform </span>
-                                </li>
-                                <li
-                                    class="text-left px-5 py-4 hover:bg-blue-light hover:text-blue-primary duration-500"
-                                >
-                                    <span>Training </span>
-                                </li>
-                                <li
-                                    class="text-left px-5 py-4 hover:bg-blue-light hover:text-blue-primary duration-500"
-                                >
-                                    <span>Ambassadors & Referrals </span>
-                                </li>
-                            </ul>
+                        <template v-if="showNav === 1">
+                            <div class="md:absolute">
+                                <ul class="bg-white shadow-lg mt-4 w-64 rounded-md">
+                                    <li
+                                        class="text-left px-5 py-4 hover:bg-blue-light hover:text-blue-primary duration-500"
+                                    >
+                                        <router-link :to="user ? '/resume' : '/login'">CV/Resume Writing</router-link>
+                                    </li>
+                                    <li
+                                        class="text-left px-5 py-4 hover:bg-blue-light hover:text-blue-primary duration-500"
+                                    >
+                                        <span>Cover letter writing </span>
+                                    </li>
+                                    <li
+                                        class="text-left px-5 py-4 hover:bg-blue-light hover:text-blue-primary duration-500"
+                                    >
+                                        <span>LinkedIn Profile Optimization </span>
+                                    </li>
+                                    <li
+                                        class="text-left px-5 py-4 hover:bg-blue-light hover:text-blue-primary duration-500"
+                                    >
+                                        <span>Personal Statement/Motivation letters </span>
+                                    </li>
+                                    <li
+                                        class="text-left px-5 py-4 hover:bg-blue-light hover:text-blue-primary duration-500"
+                                    >
+                                        <span>Business Plan</span>
+                                    </li>
+                                    <li
+                                        class="text-left px-5 py-4 hover:bg-blue-light hover:text-blue-primary duration-500"
+                                    >
+                                        <span> Business Proposal </span>
+                                    </li>
+                                    <li
+                                        class="text-left px-5 py-4 hover:bg-blue-light hover:text-blue-primary duration-500"
+                                    >
+                                        <span>Academic and Research Work</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </template>
+                    </li>
+                    <li
+                        class="nav_item mr-6 xl:mr-10 mb-4 lg:mb-0 cursor-pointer relative"
+                        @mouseover="showNav = 2"
+                        @mouseleave="showNav = ''"
+                    >
+                        <div class="flex items-center">
+                            Resources <img src="@/assets/svg/caret-down.svg" alt="" class="ml-1" />
                         </div>
-                    </template>
-                </li>
-                <li class="flex items-center nav_item mr-6 xl:mr-10 mb-4 lg:mb-0">
-                    Pricing
-                </li>
-                <li class="flex items-center nav_item mr-6 xl:mr-10 mb-4 lg:mb-0">
-                    Jobs
-                </li>
-                <li class="flex items-center nav_item mr-6 xl:mr-10 mb-4 lg:mb-0">
-                    Blog
-                </li>
+                        <template v-if="showNav === 2">
+                            <div class="md:absolute">
+                                <ul class="bg-white shadow-lg mt-4 w-64 rounded-md">
+                                    <li
+                                        class="text-left px-5 py-4 hover:bg-blue-light hover:text-blue-primary duration-500"
+                                    >
+                                        <span>Learning & Development</span>
+                                    </li>
+                                    <li
+                                        class="text-left px-5 py-4 hover:bg-blue-light hover:text-blue-primary duration-500"
+                                    >
+                                        <span>Mentorship Platform </span>
+                                    </li>
+                                    <li
+                                        class="text-left px-5 py-4 hover:bg-blue-light hover:text-blue-primary duration-500"
+                                    >
+                                        <span>Training </span>
+                                    </li>
+                                    <li
+                                        class="text-left px-5 py-4 hover:bg-blue-light hover:text-blue-primary duration-500"
+                                    >
+                                        <span>Ambassadors & Referrals </span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </template>
+                    </li>
+                    <li class="flex items-center nav_item mr-6 xl:mr-10 mb-4 lg:mb-0">
+                        Pricing
+                    </li>
+                    <li class="flex items-center nav_item mr-6 xl:mr-10 mb-4 lg:mb-0">
+                        Jobs
+                    </li>
+                    <li
+                        class="flex items-center nav_item mr-6 xl:mr-10 mb-4 lg:mb-0 hover:text-blue-primary duration-500"
+                    >
+                        <router-link to="/blog">
+                            Blog
+                        </router-link>
+                    </li>
+                </template>
+                <template v-else>
+                    <li class="flex items-center nav_item mr-6 xl:mr-10 mb-4 lg:mb-0 opacity-75 hover:text-blue-primary duration-500">
+                        <router-link to="/">
+                            Home
+                        </router-link>
+                    </li>
+                </template>
                 <template v-if="!user">
                     <li
                         class="flex items-center nav_item mr-6 xl:mr-10 mb-4 lg:mb-0 text-light-gray hover:text-blue-primary duration-500"
@@ -158,6 +171,12 @@ export default {
             isOpenMobile: false,
             showNav: '',
         }
+    },
+    props: {
+        blog: {
+            type: Boolean,
+            default: false,
+        },
     },
     methods: {
         logout() {

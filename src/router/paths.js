@@ -29,4 +29,14 @@ export default [
         name: 'Resume',
         component: () => import('@/views/Resume'),
     },
+    {
+        path: '/blog',
+        name: 'Blog',
+        component: () => import('@/views/Blog'),
+    },
+    {
+        path: '/blog/:title',
+        name: 'Blog',
+        component: () => import('@/views/Blog/Post'),
+    },
 ]
