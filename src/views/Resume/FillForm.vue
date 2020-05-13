@@ -20,6 +20,12 @@
             <certificate />
         </template>
         <other-sections @addSection="addSection" />
+
+        <div class="mt-20 flex justify-center">
+            <button class="bg-blue-primary py-3 px-24 text-white rounded-full" @click="$emit('continue')">
+                Proceed
+            </button>
+        </div>
     </div>
 </template>
 
