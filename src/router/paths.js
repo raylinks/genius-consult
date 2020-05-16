@@ -114,4 +114,14 @@ export default [
         },
         component: () => import('@/views/Jobs/Create'),
     },
+
+    {
+        path: '/admin/jobs',
+        name: 'Admin Job page',
+        meta: {
+            admin: false,
+            requiresAuth: true,
+        },
+        component: () => import('@/views/Jobs/Admin'),
+    },
 ]
