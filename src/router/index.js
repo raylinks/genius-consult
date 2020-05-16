@@ -21,7 +21,6 @@ router.beforeEach((to, from, next) => {
             if (!roleExcludedRoutes.includes(to.name)) {
                 // check if the route is an admin only route
                 if (isAdmin) {
-                    console.log(isAdmin)
                     // check if user is an admin
                     if (to.meta.admin) {
                         next()

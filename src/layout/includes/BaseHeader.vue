@@ -104,7 +104,9 @@
                         Pricing
                     </li>
                     <li class="flex items-center nav_item mr-6 xl:mr-10 mb-4 lg:mb-0">
-                        Jobs
+                        <router-link to="/jobs">
+                            Jobs
+                        </router-link>
                     </li>
                     <li
                         class="flex items-center nav_item mr-6 xl:mr-10 mb-4 lg:mb-0 hover:text-blue-primary duration-500"
@@ -115,7 +117,9 @@
                     </li>
                 </template>
                 <template v-else>
-                    <li class="flex items-center nav_item mr-6 xl:mr-10 mb-4 lg:mb-0 opacity-75 hover:text-blue-primary duration-500">
+                    <li
+                        class="flex items-center nav_item mr-6 xl:mr-10 mb-4 lg:mb-0 opacity-75 hover:text-blue-primary duration-500"
+                    >
                         <router-link to="/">
                             Home
                         </router-link>

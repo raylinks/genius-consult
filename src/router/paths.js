@@ -4,7 +4,7 @@ export default [
         name: 'HomePage',
         meta: {
             admin: false,
-            requiresAuth: false
+            requiresAuth: false,
         },
         component: () => import('@/views'),
     },
@@ -22,7 +22,7 @@ export default [
         name: 'Register',
         meta: {
             admin: false,
-            requiresAuth: false
+            requiresAuth: false,
         },
         component: () => import('@/views/Auth/Register'),
     },
@@ -31,7 +31,7 @@ export default [
         name: 'Verify',
         meta: {
             admin: false,
-            requiresAuth: false
+            requiresAuth: false,
         },
         component: () => import('@/views/Auth/Verify'),
     },
@@ -40,7 +40,7 @@ export default [
         name: 'forgot-password',
         meta: {
             admin: false,
-            requiresAuth: false
+            requiresAuth: false,
         },
         component: () => import('@/views/Auth/ForgotPassword'),
     },
@@ -49,7 +49,7 @@ export default [
         name: 'Resume',
         meta: {
             admin: false,
-            requiresAuth: true
+            requiresAuth: true,
         },
         component: () => import('@/views/Resume'),
     },
@@ -76,7 +76,7 @@ export default [
         name: 'Blog Posts',
         meta: {
             admin: true,
-            requiresAuth: true
+            requiresAuth: true,
         },
         component: () => import('@/views/Blog/AllPosts'),
     },
@@ -90,8 +90,28 @@ export default [
         name: 'Create Blog Post',
         meta: {
             admin: true,
-            requiresAuth: true
+            requiresAuth: true,
         },
         component: () => import('@/views/Blog/Create'),
+    },
+
+    {
+        path: '/jobs',
+        name: 'View Jobs',
+        meta: {
+            admin: false,
+            requiresAuth: false,
+        },
+        component: () => import('@/views/Jobs'),
+    },
+
+    {
+        path: '/jobs/create',
+        name: 'Create Job',
+        meta: {
+            admin: false,
+            requiresAuth: true,
+        },
+        component: () => import('@/views/Jobs/Create'),
     },
 ]
