@@ -71,18 +71,20 @@
         <div class="mt-16 w-9/12 mx-auto">
             <div class="flex items-center mb-4">
                 <div class="flex items-center mr-3">
-                    <svg
-                        width="37"
-                        height="33"
-                        viewBox="0 0 37 33"
-                        xmlns="http://www.w3.org/2000/svg"
-                        :class="`like ${liked ? 'liked' : ''}`"
-                        @click="likePost"
-                    >
-                        <path
-                            d="M18.6655 7.59786L18.6655 7.5979L18.6655 7.59797L19.0532 8.19883L18.6655 7.59786ZM18.6655 7.59786L18.6653 7.59765L18.6646 7.5966L18.66 7.58945L18.6387 7.5576C18.6193 7.52881 18.5894 7.48528 18.5496 7.42901C18.4698 7.31643 18.3501 7.15308 18.1932 6.95486C17.8791 6.55781 17.4186 6.02407 16.8351 5.4789C15.6586 4.37976 14.0315 3.28012 12.1316 3.09129L12.1268 3.09082L12.1268 3.0908C7.17755 2.55103 3.46738 6.06616 3.07167 10.0264L3.07057 10.0374L3.06899 10.0484C2.78512 12.0095 3.34519 13.9485 4.28213 15.7638C5.21859 17.5782 6.50934 19.2271 7.6355 20.6006C10.7519 24.2823 15.2898 27.9982 18.2251 29.7703C21.1458 28.0976 26.1373 24.8656 29.5229 21.5951L29.5314 21.5869L29.5315 21.587C32.157 19.1686 35.1741 15.6606 35.047 11.5917C34.9209 7.55202 31.7181 3.90473 26.486 3.85831L26.4824 3.85828C24.463 3.8257 22.7205 4.74731 21.4593 5.71312C20.8322 6.19333 20.3349 6.67633 19.995 7.03874C19.8253 7.21966 19.6955 7.36976 19.6092 7.47335C19.566 7.52513 19.5337 7.56523 19.5128 7.59168L19.4899 7.62084L19.485 7.62727L19.4844 7.62801L19.4843 7.62823L19.4842 7.62836L18.6655 7.59786Z"
-                        />
-                    </svg>
+                    <template v-if="isLoggedIn">
+                        <svg
+                            width="37"
+                            height="33"
+                            viewBox="0 0 37 33"
+                            xmlns="http://www.w3.org/2000/svg"
+                            :class="`like ${liked ? 'liked' : ''}`"
+                            @click="likePost"
+                        >
+                            <path
+                                d="M18.6655 7.59786L18.6655 7.5979L18.6655 7.59797L19.0532 8.19883L18.6655 7.59786ZM18.6655 7.59786L18.6653 7.59765L18.6646 7.5966L18.66 7.58945L18.6387 7.5576C18.6193 7.52881 18.5894 7.48528 18.5496 7.42901C18.4698 7.31643 18.3501 7.15308 18.1932 6.95486C17.8791 6.55781 17.4186 6.02407 16.8351 5.4789C15.6586 4.37976 14.0315 3.28012 12.1316 3.09129L12.1268 3.09082L12.1268 3.0908C7.17755 2.55103 3.46738 6.06616 3.07167 10.0264L3.07057 10.0374L3.06899 10.0484C2.78512 12.0095 3.34519 13.9485 4.28213 15.7638C5.21859 17.5782 6.50934 19.2271 7.6355 20.6006C10.7519 24.2823 15.2898 27.9982 18.2251 29.7703C21.1458 28.0976 26.1373 24.8656 29.5229 21.5951L29.5314 21.5869L29.5315 21.587C32.157 19.1686 35.1741 15.6606 35.047 11.5917C34.9209 7.55202 31.7181 3.90473 26.486 3.85831L26.4824 3.85828C24.463 3.8257 22.7205 4.74731 21.4593 5.71312C20.8322 6.19333 20.3349 6.67633 19.995 7.03874C19.8253 7.21966 19.6955 7.36976 19.6092 7.47335C19.566 7.52513 19.5337 7.56523 19.5128 7.59168L19.4899 7.62084L19.485 7.62727L19.4844 7.62801L19.4843 7.62823L19.4842 7.62836L18.6655 7.59786Z"
+                            />
+                        </svg>
+                    </template>
 
                     <p class="opacity-50 ml-2">{{ post.likes_count }} Like{{ post.likes_count > 1 ? 's' : '' }}</p>
                 </div>
@@ -90,31 +92,44 @@
             </div>
 
             <hr class="divider" />
-            <form class="mt-8" @submit.prevent="postComment">
-                <h5>Leave a comment</h5>
-                <textarea
-                    class="rounded-lg w-1/2 mt-4 p-6 duration-500"
-                    rows="7"
-                    placeholder="Type your comment here"
-                    v-model="comment"
-                    required
-                ></textarea>
-                <div class="mt-5">
-                    <button
-                        class="bg-blue-primary py-2 px-16 text-white rounded-full flex items-center justify-center"
-                        :disabled="submittingComment"
-                        type="submit"
-                    >
-                        Submit <img src="@/assets/svg/load.svg" class="ml-2" v-if="submittingComment" />
-                    </button>
-                </div>
+            <template v-if="isLoggedIn">
+                <form class="mt-8" @submit.prevent="postComment">
+                    <h5>Leave a comment</h5>
+                    <textarea
+                        class="rounded-lg w-1/2 mt-4 p-6 duration-500"
+                        rows="7"
+                        placeholder="Type your comment here"
+                        v-model="comment"
+                        required
+                    ></textarea>
+                    <div class="mt-5">
+                        <button
+                            class="bg-blue-primary py-2 px-16 text-white rounded-full flex items-center justify-center"
+                            :disabled="submittingComment"
+                            type="submit"
+                        >
+                            Submit <img src="@/assets/svg/load.svg" class="ml-2" v-if="submittingComment" />
+                        </button>
+                    </div>
 
-                <template>
-                    <p :class="`mt-2 text-sm ${message.type === 'Success' ? 'text-success' : 'text-danger'}`">
-                        {{ message.note }}
-                    </p>
-                </template>
-            </form>
+                    <template>
+                        <p :class="`mt-2 text-sm ${message.type === 'Success' ? 'text-success' : 'text-danger'}`">
+                            {{ message.note }}
+                        </p>
+                    </template>
+                </form>
+            </template>
+            <template v-else>
+                <div class="h-64 w-full flex items-center justify-center flex-col">
+                    <p>Login to be able to like or comment on post</p>
+                    <router-link
+                        to="/login"
+                        class="hover:bg-blue-primary text-blue-primary border border-blue-primary duration-500 py-2 px-16 hover:text-white rounded-full flex items-center justify-center mt-5"
+                    >
+                        Login
+                    </router-link>
+                </div>
+            </template>
         </div>
     </default-layout>
 </template>
@@ -138,6 +153,10 @@ export default {
     computed: {
         id: function() {
             return this.$route.params.id
+        },
+
+        isLoggedIn: function() {
+            return localStorage.getItem('user') || false
         },
 
         linkText() {
@@ -235,7 +254,7 @@ p {
     letter-spacing: 0.03em;
     color: rgba(0, 0, 0, 0.8);
 }
-//
+
 .like {
     stroke: #b5b3b3;
     fill: none;

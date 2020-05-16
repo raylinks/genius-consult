@@ -72,9 +72,10 @@ export default {
             login(this.form)
                 .then((data) => {
                     this.loading = false
-                    const respData = data.data
+                    console.log(data.data.message)
+                    const respData = data.data.message
                     localStorage.setItem('token', respData.message)
-                    localStorage.setItem('user', JSON.stringify(respData.data))
+                    localStorage.setItem('user', JSON.stringify(respData))
                     this.$router.push('/')
                 })
                 .catch((err) => {
