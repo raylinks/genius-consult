@@ -10,6 +10,11 @@ const getAllPostsAdmin = async () => {
     return data
 }
 
+const getAllPostsUsers = async () => {
+    const data = http.get('get/posts/users')
+    return data
+}
+
 const getPost = async (id) => {
     const data = http.get(`post/${id}`)
     return data
@@ -30,4 +35,4 @@ const submitComment = async (comment, id) => {
     return data
 }
 
-export { submitPost, getAllPostsAdmin, getPost, likePost, unLikePost, submitComment }
+export { submitPost, getAllPostsAdmin, getPost, likePost, unLikePost, submitComment, getAllPostsUsers }

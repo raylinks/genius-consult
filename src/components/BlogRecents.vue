@@ -11,12 +11,14 @@
             <div class="3/12"></div>
 
             <div class="blog-info p-12 absolute right-0 w-6/12">
-                <p class="date font-semibold mb-1">06.12.2020</p>
-                <h2 class="mb-4">This is a blog post title</h2>
-                <p class="desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                <p class="date font-semibold mb-1">{{ date }}</p>
+                <h2 class="mb-4">{{ this.posts.length ? posts[step].title : '' }}</h2>
+                <div class="desc w-11/12" v-html="this.posts.length ? posts[step].body : ''">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                </div>
                 <div class="mt-8">
                     <router-link
-                        to="/"
+                        :to="`/blog/${this.posts.length ? posts[step].id : ''}`"
                         class="link border border-blue text-blue hover:bg-blue py-2 px-6 hover:text-white duration-500 rounded-full"
                         >Read Now</router-link
                     >
@@ -24,21 +26,50 @@
             </div>
         </div>
         <div class="mt-32 flex items-center justify-center text-dark font-bold no">
-            <div class="mr-4 active cursor-pointer hover:text-blue duration-700">
-                <p>01</p>
-            </div>
-            <div class="mr-4 cursor-pointer hover:text-blue duration-700">
-                <p>02</p>
-            </div>
-            <div class="mr-4 cursor-pointer hover:text-blue duration-700">
-                <p>03</p>
+            <div
+                :class="`mr-4 ${i == step ? 'active' : ''} cursor-pointer`"
+                v-for="(post, i) in posts"
+                :key="post.id"
+                @click="step = i"
+            >
+                <p class="hover:text-blue duration-700">0{{ i + 1 }}</p>
             </div>
         </div>
     </div>
 </template>
 
 <script>
-export default {}
+import { formatDate } from '@/utils/formatDate'
+export default {
+    props: {
+        posts: Array,
+    },
+    data() {
+        return {
+            step: 0,
+            timer: '',
+        }
+    },
+    mounted() {
+        this.handleChange()
+    },
+    methods: {
+        handleChange() {
+            setInterval(() => {
+                this.next()
+            }, 5000)
+        },
+
+        next() {
+            this.step = this.step != this.posts.length - 1 ? (this.step += 1) : 0
+        },
+    },
+    computed: {
+        date: function() {
+            return formatDate(this.posts.length ? this.posts[this.step].updated_at : '00:00:00')
+        },
+    },
+}
 </script>
 
 <style lang="scss" scoped>
@@ -78,7 +109,15 @@ export default {}
 }
 
 .active {
-    color: theme('colors.blue.primary') !important;
+    p {
+        color: theme('colors.blue.primary') !important;
+    }
     text-decoration: line-through;
+}
+
+.desc {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 </style>

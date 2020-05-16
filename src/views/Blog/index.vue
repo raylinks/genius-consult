@@ -9,7 +9,7 @@
         <section>
             <div class="w-9/12 mx-auto">
                 <p class="rec mb-6">Recent Posts</p>
-                <blog-recents />
+                <blog-recents :posts="recentPosts" />
             </div>
         </section>
 
@@ -19,49 +19,41 @@
                     <p class="rec mb-2">Older Posts</p>
                     <hr class="border-t divider" />
                 </div>
-                <div class="grid grid-cols-3 gap-10 mt-10">
-                    <div class="col-span-1">
-                        <div class="mb-5 rounded-lg img"></div>
-                        <div>
-                            <h2 class="blog-title text-dark mb-3">Title of another blog post</h2>
-                            <p class="opacity-75 blog-info">
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                            </p>
-                        </div>
+                <template v-if="olderPosts.length">
+                    <div class="grid grid-cols-3 gap-10 mt-10">
+                        <router-link
+                            :to="`/blog/${post.id}`"
+                            class="col-span-1"
+                            v-for="post in olderPosts"
+                            :key="post.id"
+                        >
+                            <div class="mb-5 rounded-lg img"></div>
+                            <div>
+                                <h2 class="blog-title text-dark mb-3">{{ post.title }}</h2>
+                                <div class="opacity-75 blog-info w-11/12" v-html="post.body"></div>
+                            </div>
+                        </router-link>
                     </div>
-                    <div class="col-span-1">
-                        <div class="mb-5 rounded-lg img"></div>
-                        <div>
-                            <h2 class="blog-title text-dark mb-3">Title of another blog post</h2>
-                            <p class="opacity-75 blog-info">
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-span-1">
-                        <div class="mb-5 rounded-lg img"></div>
-                        <div>
-                            <h2 class="blog-title text-dark mb-3">Title of another blog post</h2>
-                            <p class="opacity-75 blog-info">
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                            </p>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="flex items-cennter justify-center mt-16">
-                    <div class="flex items-center mr-4">
-                        <img src="@/assets/svg/arrow.svg" alt="" class="mr-2" />
-                        <p>Prev</p>
+                    <!-- <div class="flex items-cennter justify-center mt-16">
+                        <div class="flex items-center mr-4">
+                            <img src="@/assets/svg/arrow.svg" alt="" class="mr-2" />
+                            <p>Prev</p>
+                        </div>
+                        <div class="text-blue font-bold mr-4">
+                            1
+                        </div>
+                        <div class="flex items-center mr-">
+                            <p>Next</p>
+                            <img src="@/assets/svg/arrow.svg" alt="" class="ml-2 transform rotate-180" />
+                        </div>
+                    </div> -->
+                </template>
+                <template v-else>
+                    <div class="w-full flex items-center justify-center h-64">
+                        <p>No Older Posts for now</p>
                     </div>
-                    <div class="text-blue font-bold mr-4">
-                        1
-                    </div>
-                    <div class="flex items-center mr-">
-                        <p>Next</p>
-                        <img src="@/assets/svg/arrow.svg" alt="" class="ml-2 transform rotate-180" />
-                    </div>
-                </div>
+                </template>
             </div>
         </section>
     </default-layout>
@@ -69,9 +61,31 @@
 
 <script>
 import BlogRecents from '@/components/BlogRecents'
+import { getAllPostsUsers } from '@/services/blog'
 export default {
     components: {
         BlogRecents,
+    },
+    data() {
+        return {
+            posts: [],
+        }
+    },
+    mounted() {
+        getAllPostsUsers().then((data) => {
+            this.posts = data.data.message
+        })
+    },
+
+    computed: {
+        recentPosts: function() {
+            const recents = this.posts.slice().splice(0, 3)
+            return recents
+        },
+        olderPosts: function() {
+            const posts = this.posts.length > 3 ? this.posts.slice().splice(3, this.posts.length) : []
+            return posts
+        },
     },
 }
 </script>
@@ -111,6 +125,9 @@ export default {
 .blog-info {
     font-size: 13px;
     letter-spacing: 0.03em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .divider {
