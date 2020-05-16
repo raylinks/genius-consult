@@ -18,6 +18,15 @@ export default [
         component: () => import('@/views/Auth/Login'),
     },
     {
+        path: '/reset-password',
+        name: 'reset-password',
+        meta: {
+            requiresAuth: false,
+            admin: false,
+        },
+        component: () => import('@/views/Auth/ResetPassword'),
+    },
+    {
         path: '/register',
         name: 'Register',
         meta: {
@@ -119,9 +128,18 @@ export default [
         path: '/admin/jobs',
         name: 'Admin Job page',
         meta: {
-            admin: false,
+            admin: true,
             requiresAuth: true,
         },
         component: () => import('@/views/Jobs/Admin'),
+    },
+    {
+        path: '/admin',
+        name: 'Admin Home page',
+        meta: {
+            admin: false,
+            requiresAuth: true,
+        },
+        component: () => import('@/views/Admin'),
     },
 ]

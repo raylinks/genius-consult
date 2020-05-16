@@ -14,3 +14,8 @@ export const forgotPassword = async (email) => {
     const data = await http.post('/forgotpassword', { email })
     return data
 }
+
+export const resetPassword = async (form) => {
+    const data = await http.post('/resetpassword', { password: form.password, token: form.token })
+    return data
+}
