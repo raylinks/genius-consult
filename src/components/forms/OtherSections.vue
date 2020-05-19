@@ -99,18 +99,23 @@ export default {
     }
 }
 p {
-    font-size: 14px;
+    font-size: 14px !important;
+}
+
+h2 {
+    font-size: 24px !important;
 }
 
 .info {
     text-align: left !important;
     margin-top: 10px;
     h4 {
-        font-size: 18px;
+        font-size: 18px !important;
         font-weight: 600;
     }
     p {
-        font-size: 15px;
+        font-size: 15px !important;
+        line-height: 24px !important;
     }
 }
 </style>

@@ -4,7 +4,7 @@
         <section>
             <form class="w-8/12 mx-auto" @submit.prevent="submitPost">
                 <input type="text" placeholder="Title" class="title w-full mb-4" v-model="title" required />
-                <!-- <input type="file" name="" id="" placeholder="upload cover photo" /> -->
+                <input type="file" name="" id="" placeholder="Upload cover photo" />
                 <ckeditor
                     :editor="editor"
                     v-model="editorData"
