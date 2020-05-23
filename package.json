@@ -6,13 +6,14 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "start": "vue-cli-service serve"
+    "start": "node server.js"
   },
   "dependencies": {
     "@ckeditor/ckeditor5-build-classic": "^19.0.0",
     "@ckeditor/ckeditor5-vue": "^1.0.1",
     "axios": "^0.19.2",
     "core-js": "^3.6.4",
+    "express": "^4.17.1",
     "vue": "^2.6.11",
     "vue-router": "^3.1.6",
     "vue-sweetalert2": "^3.0.3"
@@ -24,7 +25,7 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
-    "node-sass": "^4.14.0",
+    "node-sass": "^4.14.1",
     "sass-loader": "^8.0.2",
     "tailwindcss": "^1.4.4",
     "vue-template-compiler": "^2.6.11"
