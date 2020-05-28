@@ -15,6 +15,15 @@
                 :class="isOpenMobile ? 'block bg-white' : 'hidden bg-transparent'"
             >
                 <template v-if="!blog">
+                     <li
+                        class="nav_item mr-6 xl:mr-10 mb-4 lg:mb-0 cursor-pointer relative"
+                        @mouseover="showNav = 1"
+                        @mouseleave="showNav = ''"
+                    >
+                        <div class="flex items-center">
+                             Recruimen <img src="@/assets/svg/caret-down.svg" alt="" class="ml-1" />
+                        </div>
+                        </li>
                     <li
                         class="nav_item mr-6 xl:mr-10 mb-4 lg:mb-0 cursor-pointer relative"
                         @mouseover="showNav = 1"

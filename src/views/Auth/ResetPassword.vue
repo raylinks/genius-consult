@@ -2,7 +2,7 @@
     <div class="h-screen w-full flex items-center justify-center md:bg-blue-primary">
         <div class="md:w-9/12 lg:w-7/12  xl:w-2/5 mx-auto">
             <div class="bg-white rounded-lg py-10 px-12">
-                <h3 class="font-semibold text-dark text-center">Reset Your password</h3>
+                <h3 class="font-semibold text-dark text-center">Ener  Your  new password</h3>
 
                 <form class="mt-12" @submit.prevent="login">
                     <div class="flex flex-col">
