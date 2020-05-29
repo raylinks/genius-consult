@@ -5,6 +5,19 @@
                 <h3 class="font-semibold text-dark">Create a new account</h3>
 
                 <form class="mt-12" @submit.prevent="register">
+                     <div class="flex flex-col">
+                        <label for="email">Name</label>
+                        <input
+                            type="text"
+                            name="name"
+                            id="name"
+                            v-model="form.name"
+                            class="rounded-lg px-6 mt-3 border border-dark py-4"
+                            autocomplete="email"
+                            placeholder="Enter name "
+                            required
+                        />
+                    </div>
                     <div class="flex flex-col">
                         <label for="email">Email address</label>
                         <input
@@ -69,6 +82,7 @@ export default {
     data() {
         return {
             form: {
+                name:'',
                 email: '',
                 password: '',
             },
