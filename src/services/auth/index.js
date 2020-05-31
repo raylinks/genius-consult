@@ -6,7 +6,7 @@ export const login = async (form) => {
 }
 
 export const register = async (form) => {
-    const data = await http.post('/register/user', { email: form.email, password: form.password })
+    const data = await http.post('/register/user', { email: form.email, password: form.password, name: form.name })
     return data
 }
 
