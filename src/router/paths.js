@@ -142,4 +142,32 @@ export default [
         },
         component: () => import('@/views/Admin'),
     },
+    // {
+    //     path: '/admin/recruitment',
+    //     name: 'Admin Recruitment page',
+    //     meta: {
+    //         admin: true,
+    //         requiresAuth: true
+    //     },
+    //     component: () => import('@/views/recruitment/Admin')
+    // }
+    // {
+    //     path: '/admin/recruitment/create',
+    //     name: 'Admin Recruitment page',
+    //     meta: {
+    //         admin: true,
+    //         requiresAuth: true
+    //     },
+    //     component: () => import('@/views/recruitment/create')
+    // }
+    // {
+    //     path: '/admin/recruitment/update',
+    //     name: 'Admin Recruitment page',
+    //     meta: {
+    //         admin: true,
+    //         requiresAuth: true
+    //     },
+    //     component: () => import('@/views/recruitment/process')
+    // }
+
 ]
