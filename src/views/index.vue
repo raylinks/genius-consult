@@ -52,6 +52,14 @@
     <section class="flex flex-col items-center">
       <div class="h-40 w-full bg-transparent"></div>
       <div class="head_line"></div>
+      <h2 class="text-deep-gray font-bold">What do we do ?</h2>
+      <div class="h-20 w-full"></div>
+
+      <resume-description />
+    </section>
+    <section class="flex flex-col items-center">
+      <div class="h-40 w-full bg-transparent"></div>
+      <div class="head_line"></div>
       <h2 class="text-deep-gray font-bold">How it works</h2>
       <div class="h-20 w-full"></div>
 
@@ -78,9 +86,11 @@
 
 <script>
 import ResumeProcess from "@/components/ResumeProcess.vue";
+import ResumeDescription from "@/components/ResumeDescription";
 export default {
   components: {
     ResumeProcess,
+    ResumeDescription,
   },
 };
 </script>

@@ -5,7 +5,7 @@
     <div
       class="flex justify-between items-center w-10/12 mx-auto lg:mx-0 lg:w-auto"
     >
-      <img src="@/assets/img/GeniusConsults.svg" class="imgLogo" alt />
+      <img src="@/assets/img/geniusConsultLogo.svg" class="imgLogo" alt />
 
       <div
         class="strokes lg:hidden block"
@@ -260,6 +260,11 @@ export default {
   }
 }
 
+img.imgLogo {
+  height: 100px;
+  width: 150px;
+}
+
 .strokes {
   .stroke {
     background: black;
@@ -267,13 +272,13 @@ export default {
     height: 3px;
   }
 }
-@media screen and (min-width: 1024px) {
-  img.imgLogo {
-    height: 200px;
-    width: 200px;
-    // margin-left: 20px;
-  }
-}
+// @media screen and (min-width: 1024px) {
+//   img.imgLogo {
+//     height: 200px;
+//     width: 200px;
+//     // margin-left: 20px;
+//   }
+// }
 
 @media screen and (max-width: 780px) {
   img.imgLogo {
