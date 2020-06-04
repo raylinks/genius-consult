@@ -92,7 +92,7 @@ export default {};
 
 <style lang="scss" scoped>
 img {
-  padding: 100px;
+  padding: 5px;
 }
 .process_section {
   height: 65vh;
