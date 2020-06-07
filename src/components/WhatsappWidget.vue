@@ -1,6 +1,6 @@
 <template>
   <a
-    href="https://api.whatsapp.com/send?phone=2348087052422&text=Hello CVgenuis%20Consult%20."
+    href="https://api.whatsapp.com/send?phone=2348087052422&text=Hello%20Genius%20Consult!%20I%E2%80%99m%20interested%20in%20one%20of%20your%20services%20"
     class="float"
     target="_blank"
   >
