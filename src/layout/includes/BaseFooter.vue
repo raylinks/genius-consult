@@ -114,17 +114,22 @@
             <a
               href="https://ng.linkedin.com/organization-guest/company/geniusconsult"
               class="mr-2"
+              target="_blank"
             >
               <img
                 src="https://img.icons8.com/android/48/000000/linkedin.png"
               />
             </a>
 
-            <a href="https://twitter.com/geniusconsultng" class="mr-2">
+            <a
+              href="https://twitter.com/geniusconsultng"
+              target="_blank"
+              class="mr-2"
+            >
               <img src="https://img.icons8.com/fluent/48/000000/twitter.png" />
             </a>
 
-            <a href="https://web.facebook.com/geniusconsultng/">
+            <a href="https://web.facebook.com/geniusconsultng/" target="_blank">
               <img
                 src="https://img.icons8.com/fluent/48/000000/facebook-new.png"
               />
