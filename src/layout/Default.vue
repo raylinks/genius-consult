@@ -1,5 +1,5 @@
 <template>
-  <div class="relative page-container pb-20 ">
+  <div class="relative page-container ">
     <base-header :blog="blog"></base-header>
     <slot></slot>
     <base-footer></base-footer>
@@ -24,8 +24,4 @@ export default {
 };
 </script>
 
-<style>
-div.page-container {
-  padding-bottom: 7.5rem !important;
-}
-</style>
+<style></style>
