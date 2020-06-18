@@ -26,6 +26,13 @@
       <div
         class="w-10/12 xl:w-9/12 mx-auto md:flex items-center h-full py-10 md:py-0"
       >
+        <div class="md:w-1/2 p-5">
+          <img
+            src="@/assets/svg/cv.svg"
+            alt=""
+            class="md:ml-auto mt-10 md:mt-0 "
+          />
+        </div>
         <div class="md:w-1/2">
           <h3>CV Writing</h3>
           <p class="lg:w-9/12 lg:pr-2">
@@ -33,13 +40,6 @@
             without hassle and get to search for jobs that would finally get you
             that financial freedom you wanted
           </p>
-        </div>
-        <div class="md:w-1/2">
-          <img
-            src="@/assets/svg/cv.svg"
-            alt=""
-            class="md:ml-auto mt-10 md:mt-0"
-          />
         </div>
       </div>
     </div>
@@ -68,18 +68,18 @@
         class="w-10/12 xl:w-9/12 mx-auto md:flex items-center h-full py-10 md:py-0"
       >
         <div class="md:w-1/2">
-          <h3>Learning & Development</h3>
-          <p class="lg:w-9/12 lg:pr-2">
-            Learn In-demand Skills needed in today’s workplace which would help
-            you Land your dream job faster or work as a sought after freelancer.
-          </p>
-        </div>
-        <div class="md:w-1/2">
           <img
             src="@/assets/svg/development.svg"
             alt=""
             class="md:ml-auto mt-10 md:mt-0"
           />
+        </div>
+        <div class="md:w-1/2 ml-10">
+          <h3>Learning & Development</h3>
+          <p class="lg:w-9/12 lg:pr-2">
+            Learn In-demand Skills needed in today’s workplace which would help
+            you Land your dream job faster or work as a sought after freelancer.
+          </p>
         </div>
       </div>
     </div>
