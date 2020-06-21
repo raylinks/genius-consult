@@ -37,7 +37,7 @@
             @mouseleave="showNav = ''"
           >
             <div class="flex items-center">
-              Recruimen
+              Recruiment
               <img src="@/assets/svg/caret-down.svg" alt class="ml-1" />
             </div>
           </li>
