@@ -5,12 +5,7 @@
             <div class="w-9/12 mx-auto">
                 <div class="flex items-center justify-between w-11/12 mx-auto">
                     <h1>All Job Posts</h1>
-                    <router-link
-                        to="/jobs/create"
-                        class="border border-blue text-blue px-3 rounded-md plus font-semibold hover:bg-blue-deep hover:border-blue-deep hover:text-white duration-500 cursor-pointer"
-                    >
-                        &#43;
-                    </router-link>
+    
                 </div>
                 <template v-if="jobs.length">
                     <div class="table-responsive mt-6">

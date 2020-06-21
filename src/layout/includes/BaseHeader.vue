@@ -30,15 +30,15 @@
         class="lg:flex items-center h-full px-10 pb-10 lg:pb-0 lg:px-0"
         :class="isOpenMobile ? 'block bg-white' : 'hidden bg-transparent'"
       >
-        <template v-if="!blog">
+     
           <li
             class="nav_item mr-6 xl:mr-10 mb-4 lg:mb-0 cursor-pointer relative"
             @mouseover="showNav = 1"
             @mouseleave="showNav = ''"
           >
             <div class="flex items-center">
-              Recruiment
-              <img src="@/assets/svg/caret-down.svg" alt class="ml-1" />
+              <router-link to="/recruitment/create">Recruiment</router-link>
+            
             </div>
           </li>
           <li
@@ -121,10 +121,15 @@
                   >
                     <span>Training</span>
                   </li>
+                    <li
+                    class="text-left px-5 py-4 hover:bg-blue-light hover:text-blue-primary duration-500"
+                  >
+                    <span>Ambassadors</span>
+                  </li>
                   <li
                     class="text-left px-5 py-4 hover:bg-blue-light hover:text-blue-primary duration-500"
                   >
-                    <span>Ambassadors & Referrals</span>
+                    <span>Referrals</span>
                   </li>
                 </ul>
               </div>
@@ -141,8 +146,8 @@
           >
             <router-link to="/blog">Blog</router-link>
           </li>
-        </template>
-        <template v-else>
+     
+        <template>
           <li
             class="flex items-center nav_item mr-6 xl:mr-10 mb-4 lg:mb-0 opacity-75 hover:text-blue-primary duration-500"
           >

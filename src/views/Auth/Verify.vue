@@ -1,7 +1,7 @@
 <template>
     <div class="h-screen relative">
         <div class="absolute top-0 logo_container">
-            <img src="@/assets/svg/logo.svg" alt="logo" />
+            <img src="@/assets/img/geniusConsultLogo.svg" class="imgLogo" alt />
         </div>
 
         <div class="h-full flex flex-col items-center justify-center">
@@ -34,6 +34,12 @@ export default {
 
 button {
     font-size: 20px;
+}
+
+
+img.imgLogo {
+  height: 100px;
+  width: 150px;
 }
 
 .text {

@@ -103,6 +103,15 @@ export default [
         },
         component: () => import('@/views/Blog/Create'),
     },
+     {
+        path: '/recruitment',
+        name: 'Craete recruitment',
+        meta: {
+            admin: false,
+            requiresAuth: false,
+        },
+        component: () => import('@/views/Recruitment/Create'),
+    },
 
     {
         path: '/jobs',
@@ -111,7 +120,7 @@ export default [
             admin: false,
             requiresAuth: false,
         },
-        component: () => import('@/views/Jobs'),
+        component: () => import('@/views/Jobs/index'),
     },
 
     {
@@ -119,9 +128,18 @@ export default [
         name: 'Create Job',
         meta: {
             admin: false,
-            requiresAuth: true,
+            requiresAuth: false,
         },
         component: () => import('@/views/Jobs/Create'),
+    },
+    {
+        path: '/recruitment/create',
+        name: 'Create Job',
+        meta: {
+            admin: false,
+            requiresAuth: false,
+        },
+        component: () => import('@/views/Recruitment/Create'),
     },
 
     {
