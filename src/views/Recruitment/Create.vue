@@ -22,7 +22,7 @@
                 <p class="ml-2">go back</p>
             </div>
         </div>
-        <form class="w-7/12 mx-auto" @submit.prevent="submit">
+        <form class="w-7/12 mx-auto mb-10" @submit.prevent="submit">
             <h3 class="font-semibold mb-6 tracking-wide text-blue-primary opacity-">Please fill this form</h3>
             <div class="grid grid-cols-2 gap-10">
                 <div class="col-span-1 flex flex-col">

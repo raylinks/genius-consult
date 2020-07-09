@@ -1,7 +1,7 @@
 <template>
   <header class="h-24 lg:flex justify-between items-center lg:w-10/12 xl:w-4/5 mx-auto absolute top-0 inset-x-0">
     <div class="flex justify-between items-center w-10/12 mx-auto lg:mx-0 lg:w-auto">
-      <img src="@/assets/img/geniusConsultLogo.svg" class="imgLogo" alt />
+      <router-link to="/"><img src="@/assets/img/geniusConsultLogo.svg" class="imgLogo" alt /></router-link>
 
       <div class="strokes lg:hidden block" @click="isOpenMobile = !isOpenMobile">
         <div class="stroke rounded-full br-4 mb-1" :class="[isOpenMobile ? 'rotate-anti-clockwise' : '']"></div>
@@ -31,12 +31,12 @@
                   <router-link :to="user ? '/resume' : '/login'">CV/Resume Writing</router-link>
                 </li>
                 <li class="text-left px-5 py-4 flex justify-between hover:bg-blue-light hover:text-blue-primary duration-500">
-                  <span>Cover letter writing</span>
+                  <router-link to="/cover_letter_writing"><span>Cover letter writing</span></router-link>
                   <span
                     class="bg-teal-400 p-1 badge items-center h-5 text-white rounded-full  uppercase inline-block text-xs">Coming Soon!</span>
                 </li>
                 <li class="text-left px-5 flex justify-between py-4 hover:bg-blue-light hover:text-blue-primary duration-500">
-                  <span>LinkedIn Profile Optimization</span>
+                  <router-link to="/linkedin_optimisation"><span>LinkedIn Profile Optimization</span></router-link>
                   <span
                     class="bg-teal-400 p-1 badge items-center h-5 text-white rounded-full  uppercase inline-block text-xs">Coming Soon!</span>
                 </li>
@@ -46,17 +46,17 @@
                     class="bg-teal-400 p-1 badge items-center h-5 text-white rounded-full  uppercase inline-block text-xs">Coming Soon!</span>
                 </li>
                 <li class="text-left flex justify-between px-5 py-4 hover:bg-blue-light hover:text-blue-primary duration-500">
-                  <span>Business Plan</span>
+                  <router-link to="/business_plan"><span>Business Plan</span></router-link>
                  <span
                     class="bg-teal-400 p-1 badge items-center h-5 text-white rounded-full  uppercase inline-block text-xs">Coming Soon!</span>
                 </li>
                 <li class="text-left px-5 py-4 flex justify-between hover:bg-blue-light hover:text-blue-primary duration-500">
-                  <span>Business Proposal</span>
+                  <router-link to="business_proposal"><span>Business Proposal</span></router-link>
                   <span
                     class="bg-teal-400 p-1 badge items-center h-5 text-white rounded-full ml-1 mt-1 uppercase inline-block text-xs">Coming Soon!</span>
                 </li>
                 <li class="text-left px-5 py-4 flex justify-between hover:bg-blue-light hover:text-blue-primary duration-500">
-                  <span>Academic and Research Work</span>
+                  <router-link to="/academic_and_research"><span>Academic and Research Work</span></router-link>
                   <span
                     class="bg-teal-400 p-1 badge items-center h-5 text-white rounded-full ml-1 mt-1 uppercase inline-block text-xs">Coming Soon!</span>
                 </li>

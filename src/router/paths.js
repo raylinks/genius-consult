@@ -89,11 +89,11 @@ export default [
         },
         component: () => import('@/views/Blog/AllPosts'),
     },
-    // {
-    //     path: '/admin/blog/:id',
-    //     name: 'Edit Blog Post',
-    //     component: () => import('@/views/Blog/AllPosts'),
-    // },
+    {
+        path: '/admin/blog/:id',
+        name: 'Edit Blog Post',
+        component: () => import('@/views/Blog/AllPosts'),
+    },
     {
         path: '/admin/blog/create',
         name: 'Create Blog Post',
@@ -164,8 +164,8 @@ export default [
     //     path: '/admin/recruitment',
     //     name: 'Admin Recruitment page',
     //     meta: {
-    //         admin: true,
-    //         requiresAuth: true
+    //        admin: true,
+    //        requiresAuth: true
     //     },
     //     component: () => import('@/views/recruitment/Admin')
     // }
@@ -174,7 +174,7 @@ export default [
     //     name: 'Admin Recruitment page',
     //     meta: {
     //         admin: true,
-    //         requiresAuth: true
+    //        requiresAuth: true
     //     },
     //     component: () => import('@/views/recruitment/create')
     // }
@@ -187,5 +187,51 @@ export default [
     //     },
     //     component: () => import('@/views/recruitment/process')
     // }
+
+    {
+        path: '/academic_and_research',
+        name : 'Academic and research page',
+        meta:{
+            admin: false,
+            requiresAuth: false
+        },
+        component : ()=> import('@/views/Academic')
+    },
+    {
+        path: '/business_proposal',
+        name : 'Business Proposal',
+        meta:{
+            admin: false,
+            requiresAuth: false
+        },
+        component: () => import('@/views/Business/BusinessProposal')
+    },
+    {
+        path: '/business_plan',
+        name : 'Business Plan',
+        meta:{
+            admin: false,
+            requiresAuth: false
+        },
+        component : ()=> import('@/views/Business/BusinessPlan')
+    },
+    {
+        path: '/cover_letter_writing',
+        name : 'Cover Letter Writing',
+        meta:{
+            admin: false,
+            requiresAuth: false
+        },
+        component : ()=> import('@/views/Cover')
+    },
+    {
+        path: '/linkedin_optimisation',
+        name : 'Linkedin Profile Optimisation',
+        meta:{
+            admin: false,
+            requiresAuth: false
+        },
+        component : ()=> import('@/views/Linkedin')
+    }
 
 ]
