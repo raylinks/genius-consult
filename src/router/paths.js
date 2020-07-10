@@ -189,7 +189,7 @@ export default [
     // }
 
     {
-        path: '/academic_and_research',
+        path: '/services/academic_and_research',
         name : 'Academic and research page',
         meta:{
             admin: false,
@@ -198,7 +198,7 @@ export default [
         component : ()=> import('@/views/Academic')
     },
     {
-        path: '/business_proposal',
+        path: '/services/business_proposal',
         name : 'Business Proposal',
         meta:{
             admin: false,
@@ -207,7 +207,7 @@ export default [
         component: () => import('@/views/Business/BusinessProposal')
     },
     {
-        path: '/business_plan',
+        path: '/services/business_plan',
         name : 'Business Plan',
         meta:{
             admin: false,
@@ -216,7 +216,7 @@ export default [
         component : ()=> import('@/views/Business/BusinessPlan')
     },
     {
-        path: '/cover_letter_writing',
+        path: '/services/cover_letter_writing',
         name : 'Cover Letter Writing',
         meta:{
             admin: false,
@@ -225,7 +225,7 @@ export default [
         component : ()=> import('@/views/Cover')
     },
     {
-        path: '/linkedin_optimisation',
+        path: '/services/linkedin_optimisation',
         name : 'Linkedin Profile Optimisation',
         meta:{
             admin: false,

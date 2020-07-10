@@ -76,7 +76,7 @@
                             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
                                 Other Details
                             </label>
-                            <textarea type="text" placeholder="Research Title"  required />
+                            <textarea type="text" placeholder="Other Details"  required />
                         </div>
                     <div class="mt-10 flex justify-center">
                         <button class="bg-blue-primary py-3 px-16 text-white rounded-full"
@@ -89,6 +89,8 @@
             </div>
         </div>
     </div>
+
+
 </template>
 
 <script>

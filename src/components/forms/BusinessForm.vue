@@ -74,6 +74,14 @@
                                     <input type="text" class="price rounded-l-none" placeholder=" Monthly Turnover" required />
                                 </div>
                             </div>
+                            <div class="col-span-2 md:col-span-1">
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+                                    How Many branches/Locations does the business have?
+                                </label>
+                                <div class="">
+                                    <input type="number" class=" rounded-l-none" placeholder="Branches/Locations" required />
+                                </div>
+                            </div>
                             <div class="col-span-1 md:col-span-1">
                                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
                                     What type of Business Proposal would you prefer?
@@ -86,33 +94,49 @@
                             </div>
                         </div>
                         <br>
-<!-- <div class="flex flex-wrap -mx-3 mb-2">
-    <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-city">
-        City
-      </label>
-      <input class="block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline focus:bg-white focus:border-gray-500" id="grid-city" type="checkbox" placeholder="Albuquerque">
-    </div>
-    <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-zip">
-        Zip
-      </label>
-      <input class="block  bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline focus:bg-white focus:border-gray-500" id="grid-zip" type="checkbox" placeholder="90210">
-    </div>
-    <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-zip">
-        Zip
-      </label>
-      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-zip" type="checkbox" placeholder="90210">
-    </div>
-</div> -->
+                        <div class="block">
+                        <span class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Staff Strength</span>
+                        <div class="mt-2">
+                            <div>
+                            <label class="inline-flex items-center">
+                                <input type="radio" class="form-radio" name="radio" value="1">
+                                <span class="ml-2">1-5</span>
+                            </label>
+                            </div>
+                            <div>
+                            <label class="inline-flex items-center">
+                                <input type="radio" class="form-radio" name="radio" value="2">
+                                <span class="ml-2">6-20</span>
+                            </label>
+                            </div>
+                            <div>
+                            <label class="inline-flex items-center">
+                                <input type="radio" class="form-radio" name="radio" value="3">
+                                <span class="ml-2">21-100</span>
+                            </label>
+                            </div>
+                            <div>
+                            <label class="inline-flex items-center">
+                                <input type="radio" class="form-radio" name="radio" value="3">
+                                <span class="ml-2">Above 100</span>
+                            </label>
+                            </div>
+                        </div>
+                        </div>
+                        <br>
+                        <div class="w-full">
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+                                    Future Plans for the business
+                                </label>
+                                <textarea type="text" placeholder="Future plans"  required />
+                        </div>
                         <br>
                         <div class="w-full">
                                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
                                     Other Details
                                 </label>
-                                <textarea type="text" placeholder="Research Title"  required />
-                            </div>
+                                <textarea type="text" placeholder="Other details"  required />
+                        </div>
                         <div class="mt-10 flex justify-center">
                             <button class="bg-blue-primary py-3 px-16 text-white rounded-full" type="submit">Submit</button>
                         </div>
@@ -193,8 +217,8 @@
                             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
                                 Other Details
                             </label>
-                            <textarea type="text" placeholder="Research Title"  required />
-                        </div>
+                            <textarea type="text" placeholder="Other Details"  required />
+                    </div>
                     <div class="mt-10 flex justify-center">
                         <button class="bg-blue-primary py-3 px-16 text-white rounded-full" type="submit">Submit</button>
                     </div>
@@ -231,8 +255,7 @@ export default {
     input[type='url'],
     input[type='email'],
     input[type='number'],
-    input[type='file'],
-    input[type='checkbox'] {
+    input[type='file']{
         padding: 10px;
         height: 55px;
         border: 1px solid #abaabe;
