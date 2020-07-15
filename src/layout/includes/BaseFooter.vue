@@ -140,7 +140,7 @@
 
 <style>
   footer {
-    background-color: rgba(3, 113, 192, 0.4);
+    background-color: #2AAAE0;
     color: #002634;
   }
 </style>

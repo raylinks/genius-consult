@@ -1,12 +1,12 @@
 <template>
-  <header class="h-24 lg:flex justify-between items-center lg:w-10/12 xl:w-4/5 mx-auto absolute top-0 inset-x-0">
+  <header :class="[isScroll ? 'show__header' : '' ]" class="h-24 lg:flex justify-between items-center lg:w-10/12 xl:w-4/5 mx-auto fixed top-0 inset-x-0">
     <div class="flex justify-between items-center w-10/12 mx-auto lg:mx-0 lg:w-auto">
-      <router-link to="/"><img src="@/assets/img/geniusConsultLogo.svg" class="imgLogo" alt /></router-link>
+      <router-link to="/"><img src="@/assets/img/geniusConsultLogo.svg" class="imgLogo p-2" alt /></router-link>
 
       <div class="strokes lg:hidden block" @click="isOpenMobile = !isOpenMobile">
-        <div class="stroke rounded-full br-4 mb-1" :class="[isOpenMobile ? 'rotate-anti-clockwise' : '']"></div>
-        <div class="stroke rounded-full br-4 mb-1" :class="[isOpenMobile ? 'hidden' : '']"></div>
-        <div class="stroke rounded-full br-4" :class="[isOpenMobile ? 'rotate-clockwise' : '']"></div>
+        <div class="stroke rounded-full br-4 mb-1" :class="[isOpenMobile ? 'rotate-anti-clockwise' : '' , !isScroll ? 'hamburger__white' : 'hamburger__black']"></div>
+        <div class="stroke rounded-full br-4 mb-1" :class="[isOpenMobile ? 'hidden' : '' , !isScroll ? 'hamburger__white' : 'hamburger__black']"></div>
+        <div class="stroke rounded-full br-4" :class="[isOpenMobile ? 'rotate-clockwise' : '' , !isScroll ? 'hamburger__white' : 'hamburger__black']" ></div>
       </div>
     </div>
     <nav>
@@ -14,13 +14,13 @@
         :class="isOpenMobile ? 'block bg-white' : 'hidden bg-transparent'">
         <li class="nav_item mr-6 xl:mr-10 mb-4 lg:mb-0 cursor-pointer relative" @mouseover="showNav = 1"
           @mouseleave="showNav = ''">
-          <div class="flex items-center">
+          <div class="flex items-center " :class="[isScroll ? 'nav__black' : 'nav__white',isOpenMobile ? 'nav__black':'', !isHome ? 'nav__black' : '']">
             <router-link to="/recruitment/create">Recruiment</router-link>
           </div>
         </li>
         <li class="nav_item mr-6 xl:mr-10 mb-4 lg:mb-0 cursor-pointer relative" @mouseover="showNav = 1"
           @mouseleave="showNav = ''">
-          <div class="flex items-center">
+          <div class="flex items-center " :class="[isScroll ? 'nav__black' : 'nav__white',isOpenMobile ? 'nav__black':'', !isHome ? 'nav__black' : '']">
             Services
             <img src="@/assets/svg/caret-down.svg" alt class="ml-1" />
           </div>
@@ -56,7 +56,7 @@
         </li>
         <li class="nav_item mr-6 xl:mr-10 mb-4 lg:mb-0 cursor-pointer relative" @mouseover="showNav = 2"
           @mouseleave="showNav = ''">
-          <div class="flex items-center">
+          <div class="flex items-center" :class="[isScroll ? 'nav__black' : 'nav__white',isOpenMobile ? 'nav__black':'', !isHome ? 'nav__black' : '']">
             Resources
             <img src="@/assets/svg/caret-down.svg" alt class="ml-1" />
           </div>
@@ -92,25 +92,25 @@
             </div>
           </template>
         </li>
-        <li class="flex items-center nav_item mr-6 xl:mr-10 mb-4 lg:mb-0">
+        <li class="flex items-center nav_item mr-6 xl:mr-10 mb-4 lg:mb-0" :class="[isScroll ? 'nav__black' : 'nav__white',isOpenMobile ? 'nav__black':'', !isHome ? 'nav__black' : '']">
           Pricing
         </li>
-        <li class="flex items-center nav_item mr-6 xl:mr-10 mb-4 lg:mb-0">
+        <li class="flex items-center nav_item mr-6 xl:mr-10 mb-4 lg:mb-0" :class="[isScroll ? 'nav__black' : 'nav__white',isOpenMobile ? 'nav__black':'', !isHome ? 'nav__black' : '']">
           <router-link to="/jobs">Jobs</router-link>
         </li>
-        <li class="flex items-center nav_item mr-6 xl:mr-10 mb-4 lg:mb-0 hover:text-blue-primary duration-500">
+        <li class="flex items-center nav_item mr-6 xl:mr-10 mb-4 lg:mb-0 hover:text-blue-primary duration-500" :class="[isScroll ? 'nav__black' : 'nav__white',isOpenMobile ? 'nav__black':'', !isHome ? 'nav__black' : '']">
           <router-link to="/blog">Blog</router-link>
         </li>
 
         <template>
           <li
-            class="flex items-center nav_item mr-6 xl:mr-10 mb-4 lg:mb-0 opacity-75 hover:text-blue-primary duration-500">
+            class="flex items-center nav_item mr-6 xl:mr-10 mb-4 lg:mb-0 opacity-75 hover:text-blue-primary duration-500" :class="[isScroll ? 'nav__black' : 'nav__white',isOpenMobile ? 'nav__black':'', !isHome ? 'nav__black' : '']">
             <router-link to="/">Home</router-link>
           </li>
         </template>
         <template v-if="!user">
           <li
-            class="flex items-center nav_item mr-6 xl:mr-10 mb-4 lg:mb-0 text-light-gray hover:text-blue-primary duration-500">
+            class="flex items-center nav_item mr-6 xl:mr-10 mb-4 lg:mb-0 text-light-gray hover:text-blue-primary duration-500" :class="[isScroll ? 'nav__black' : 'nav__white',isOpenMobile ? 'nav__black':'', !isHome ? 'nav__black' : '']">
             <router-link to="/login">Log in</router-link>
           </li>
           <li>
@@ -156,6 +156,16 @@
         type: Boolean,
         default: false,
       },
+      isScroll:{
+        type:Boolean,
+        default:false
+      }
+    },
+    created(){
+      window.addEventListener('scroll',this.handleScroll)
+    },
+    destroyed(){
+      window.removeEventListener('scroll')
     },
     methods: {
       logout() {
@@ -163,16 +173,31 @@
         localStorage.removeItem("user");
         this.$router.go();
       },
+      handleScroll(){
+        if (window.scrollY > 100) {
+                this.isScroll = true
+            } else this.isScroll = false
+      }
     },
     computed: {
       user: function () {
         return JSON.parse(localStorage.getItem("user"));
       },
+      isHome : function(){
+        return this.$route.path == '/'
+      }
     },
   };
 </script>
 
 <style lang="scss" scoped>
+
+  .show__header{
+    background-color: white;
+    width :100%;
+    padding-left : 100px;
+    padding-right:144px;
+  }
   .nav_item {
     font-size: 15px;
   }
@@ -226,6 +251,21 @@
     width: 100px!important;
     text-align: center!important;
   }
+  .nav__white{
+    color: white;
+    font-weight: 200px;
+  }
+
+  .nav__black{
+    color: black;
+  }
+
+  .hamburger__white{
+    background: white!important;
+  }
+  .hamburger__black{
+    background: black!important;
+  }
 
   .strokes {
     .stroke {
@@ -247,6 +287,15 @@
     img.imgLogo {
       height: 90px;
       width: 150px;
+    }
+  }
+
+  @media screen and (max-width:780px){
+    .show__header{
+      background-color: white;
+      width :100%;
+      padding-left: 0;
+      padding-right: 0;
     }
   }
 </style>
