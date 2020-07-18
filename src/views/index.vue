@@ -114,7 +114,7 @@ export default {
 }
 
 .get__started{
-  background-image: url('../assets/img/mac.jpg');
+  background-image: url('https://res.cloudinary.com/dfucytxl0/image/upload/v1595078997/genius-consult/mac.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -130,11 +130,11 @@ export default {
 }
 
 @keyframes changeBg{
-  0%   {background-image: url("../assets/img/businessmeeting.jpg");}
-  25%  {background-image: url("../assets/img/3meeting.jpg");}
-  50%  {background-image: url("../assets/img/womanblue.jpg");}
-  75%  {background-image: url("../assets/img/group meeting.jpg");}
-  100% {background-image: url("../assets/img/books2.jpg");}
+  0%   {background-image: url("https://res.cloudinary.com/dfucytxl0/image/upload/v1595079002/genius-consult/businessmeeting.jpg");}
+  25%  {background-image: url("https://res.cloudinary.com/dfucytxl0/image/upload/v1595079000/genius-consult/3meeting.jpg");}
+  50%  {background-image: url("https://res.cloudinary.com/dfucytxl0/image/upload/v1595078999/genius-consult/womanblue.jpg");}
+  75%  {background-image: url("https://res.cloudinary.com/dfucytxl0/image/upload/v1595078997/genius-consult/group_meeting.jpg");}
+  100% {background-image: url("https://res.cloudinary.com/dfucytxl0/image/upload/v1595079001/genius-consult/books2.jpg");}
   // 0%   {background-image: url("../assets/img/businessmeeting.jpg");}
 }
 
